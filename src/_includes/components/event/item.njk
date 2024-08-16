@@ -5,7 +5,11 @@
                 <span>{{ event.data.title }}</span>
             </h1>
 
+            {% if (collections.venues | pluck(event.data.venue)).length %}
             <p><strong>Location</strong>: <a href="{{ ('/venues/' + (event.data.venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}" class="link">{{ event.data.venue }}</a>, {{ event.data.location }}</p>
+            {% else %}
+            <p><strong>Location</strong>: {{ event.data.venue }}, {{ event.data.location }}</p>
+            {% endif %}
 
             <p><strong>Date</strong>: {{ event.data.date | date('cccc dd LLLL y') }}</p>
 
