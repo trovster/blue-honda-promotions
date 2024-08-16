@@ -1,0 +1,29 @@
+---
+layout: base.njk
+pagination:
+  data: collections.locations
+  size: 1
+  alias: location
+permalink: /locations/{{ location | slugify }}/
+eleventyComputed:
+  title: "Events in {{ location }}"
+---
+<h1>{{ location }}</h1>
+
+<h2>Upcoming Events…</h2>
+<ul>
+    {% for event in collections[location] | upcoming %}
+        <li>
+            <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}">{{ event.data.date | date('yyyy-LL-dd') }} - {{ event.data.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<h2>Previous Events…</h2>
+<ul>
+    {% for event in collections[location] | past | reverse %}
+        <li>
+            <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}">{{ event.data.date | date('yyyy-LL-dd') }} - {{ event.data.title }}</a>
+        </li>
+    {% endfor %}
+</ul>

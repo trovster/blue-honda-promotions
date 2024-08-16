@@ -1,0 +1,14 @@
+---
+layout: base.njk
+---
+<h1>{{ title }}</h1>
+<p>Location: <a href="{{ ('/venues/' + (venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ venue }}</a>, {{ location }}</p>
+<p>Date: {{ date | date('cccc dd LLLL y') }}</p>
+
+<ul>
+    {% for band in bands %}
+        <li>{{ band }}</li>
+    {% endfor %}
+</ul>
+
+{{ content | safe }}

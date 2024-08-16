@@ -1,0 +1,35 @@
+<footer>
+    <div>
+        <div>
+            <h3>About</h3>
+            <p>{{ site.description }}</p>
+            <p>
+                <a href="{{ '/about/' | url | absoluteUrl(config.baseUrl) }}">Read more</a>
+            </p>
+        </div>
+
+        <div>
+            <h3>Venues</h3>
+            <ul>
+                {% for venue in collections.venues %}
+                    <li>
+                        <a href="{{ venue.url | url | absoluteUrl(config.baseUrl) }}">{{ venue.data.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div>
+            <h3>Locations</h3>
+            <ul>
+                {% for location in collections.locationNames %}
+                    <li>
+                        <a href="{{ ('/locations/' + (location | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ location }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    © {% year %}
+</footer>

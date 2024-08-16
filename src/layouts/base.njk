@@ -1,0 +1,22 @@
+<!doctype html>
+<html dir="ltr" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="keywords" content="{{ site.keywords.join(', ') }}"/>
+        <meta name="apple-mobile-web-app-title" content="{{ site.title }}"/>
+        <meta name="application-name" content="{{ site.title }}"/>
+        <meta property="og:title" content="{{ site.title }}"/>
+        <meta property="og:description" name="description" content="{{ site.description }}"/>
+        <title>{{ title }} | {{ site.title }}</title>
+    </head>
+    <body class="{{ bodyClass }}">
+        {% include 'layout/header.njk' %}
+
+        <main>
+            {{ content | safe }}
+        </main>
+
+        {% include 'layout/footer.njk' %}
+    </body>
+</html>

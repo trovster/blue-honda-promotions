@@ -1,0 +1,39 @@
+---
+title: Welcome
+---
+<h1>{{ title }}</h1>
+
+<p class="lede">
+    Find out more <a href="{{ '/about/' | url | absoluteUrl(config.baseUrl) }}">about us</a> and our
+    <a href="{{ '/upcoming/' | url | absoluteUrl(config.baseUrl) }}">upcomnig events</a>.
+</p>
+
+{%- from 'component.njk' import component -%}
+{{ component('event/item', collections.events | next) }}
+
+<h2>Upcoming Events…</h2>
+<ul>
+    {% for event in collections.events | upcoming %}
+        <li>
+            <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}">{{ event.data.date | date('yyyy-LL-dd') }} - {{ event.data.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<h2>Previous Events…</h2>
+<ul>
+    {% for event in collections.events | past | reverse %}
+        <li>
+            <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}">{{ event.data.date | date('yyyy-LL-dd') }} - {{ event.data.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<h2>All Events…</h2>
+<ul>
+    {% for event in collections.events | reverse %}
+        <li>
+            <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}">{{ event.data.date | date('yyyy-LL-dd') }} - {{ event.data.title }}</a>
+        </li>
+    {% endfor %}
+</ul>

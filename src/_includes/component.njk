@@ -1,0 +1,4 @@
+{%- macro component(name, params) -%}
+    {%- from 'components/' + name + '.njk' import component %}
+    {{ component(params) }}
+{%- endmacro -%}

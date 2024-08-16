@@ -1,0 +1,13 @@
+{%- macro component(event, class) -%}
+<div class="{{ class }}">
+    <h1>Next Event: {{ event.data.title }}</h1>
+    <p>Location: <a href="{{ ('/venues/' + (event.data.venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ event.data.venue }}</a>, {{ event.data.location }}</p>
+    <p>Date: {{ event.data.date | date('cccc dd LLLL y') }}</p>
+
+    <ul>
+        {% for band in event.data.bands %}
+            <li>{{ band }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{%- endmacro -%}

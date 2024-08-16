@@ -1,0 +1,12 @@
+---
+title: Upcoming Events
+---
+<h1>{{ title }}</h1>
+
+<ul>
+    {% for event in collections.events | upcoming %}
+        <li>
+            <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}">{{ event.data.date | date('yyyy-LL-dd') }} - {{ event.data.title }}</a>
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,24 @@
+---
+layout: base.njk
+---
+<h1>{{ title }}</h1>
+
+{{ content | safe }}
+
+<h2>Upcoming Events…</h2>
+<ul>
+    {% for event in collections[title] | upcoming %}
+        <li>
+            <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}">{{ event.data.date | date('yyyy-LL-dd') }} - {{ event.data.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<h2>Previous Events…</h2>
+<ul>
+    {% for event in collections[title] | past | reverse %}
+        <li>
+            <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}">{{ event.data.date | date('yyyy-LL-dd') }} - {{ event.data.title }}</a>
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,12 @@
+---
+title: Locations
+---
+<h1>{{ title }}</h1>
+
+<ul>
+    {% for location in collections.locationNames %}
+        <li>
+            <a href="{{ ('/locations/' + (location | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ location }}</a>
+        </li>
+    {% endfor %}
+</ul>

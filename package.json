@@ -1,0 +1,40 @@
+{
+  "name": "blue-honda-promotions",
+  "version": "0.0.1",
+  "description": "Blue Honda Promotions",
+  "keywords": [
+    "pop-punk",
+    "ska-punk",
+    "punk",
+    "emo"
+  ],
+  "homepage": "https://blue-honda-promotions.example",
+  "config": {
+    "description": "Find the best live music from pop-punk, ska-punk, emo and adjacent bands."
+  },
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "author": {
+    "name": "Trevor Morris",
+    "url": "https://www.trovster.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trovster/blue-honda-promotions.git"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "11ty": "npx @11ty/eleventy",
+    "start": "npm run clean && npm run 11ty -- --serve --quiet",
+    "prettier": "npx prettier --write src"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0-beta.1",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.9.0",
+    "prettier": "^3.3.3"
+  }
+}

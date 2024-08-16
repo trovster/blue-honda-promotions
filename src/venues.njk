@@ -1,0 +1,12 @@
+---
+title: Venues
+---
+<h1>{{ title }}</h1>
+
+<ul>
+    {% for venue in collections.venues %}
+        <li>
+            <a href="{{ venue.url | url | absoluteUrl(config.baseUrl) }}">{{ venue.data.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
