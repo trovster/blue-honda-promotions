@@ -1,11 +1,11 @@
-{%- macro component(event) -%}
+{%- macro component(event, config) -%}
     <div class="card indicator bg-neutral text-neutral-content flex w-auto max-w-lg shadow-2xl mx-auto not-prose">
         <div class="card-body">
             <h1 class="card-title flex justify-between">
                 <span>{{ event.data.title }}</span>
             </h1>
 
-            <p><em>Location</em>: <a class="link" href="{{ ('/venues/' + (event.data.venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ event.data.venue }}</a>, {{ event.data.location }}</p>
+            <p><em>Location</em>: <a href="{{ ('/venues/' + (event.data.venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}" class="link">{{ event.data.venue }}</a>, {{ event.data.location }}</p>
 
             <p><em>Date</em>: {{ event.data.date | date('cccc dd LLLL y') }}</p>
 
@@ -16,7 +16,7 @@
             </ul>
 
             <div class="card-actions mt-2">
-                <a href="{{ event.url }}" class="btn btn-sm btn-secondary">View Event</a>
+                <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}" class="btn btn-sm btn-secondary">View Event</a>
             </div>
         </div>
 
