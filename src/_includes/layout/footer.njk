@@ -1,35 +1,41 @@
 <footer>
-    <div>
-        <div>
-            <h3>About</h3>
+    <div class="footer bg-neutral text-neutral-content p-10">
+        <aside class="md:max-w-sm">
+            <h3 class="footer-title">About</h3>
             <p>{{ site.description }}</p>
-            <p>
-                <a href="{{ '/about/' | url | absoluteUrl(config.baseUrl) }}">Read more</a>
-            </p>
+            <p><a href="{{ '/about/' | url | absoluteUrl(config.baseUrl) }}" class="link">Read more</a></p>
+        </aside>
+
+        <div>
+            <h3 class="footer-title">Venues</h3>
+            <nav>
+                <ul class="menu menu-xs p-0 -mx-2">
+                    {% for venue in collections.venues %}
+                        <li>
+                            <a href="{{ venue.url | url | absoluteUrl(config.baseUrl) }}">{{ venue.data.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
         </div>
 
         <div>
-            <h3>Venues</h3>
-            <ul>
-                {% for venue in collections.venues %}
-                    <li>
-                        <a href="{{ venue.url | url | absoluteUrl(config.baseUrl) }}">{{ venue.data.title }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-
-        <div>
-            <h3>Locations</h3>
-            <ul>
-                {% for location in collections.locationNames %}
-                    <li>
-                        <a href="{{ ('/locations/' + (location | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ location }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
+            <h3 class="footer-title">Locations</h3>
+            <nav>
+                <ul class="menu menu-xs p-0 -mx-2">
+                    {% for location in collections.locationNames %}
+                        <li>
+                            <a href="{{ ('/locations/' + (location | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ location }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
         </div>
     </div>
 
-    © {% year %}
+    <footer class="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4">
+        © {% year %}
+
+        {% include 'toggle.njk' %}
+    </div>
 </footer>

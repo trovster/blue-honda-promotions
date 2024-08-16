@@ -1,14 +1,22 @@
 ---
 layout: base.njk
 ---
-<h1>{{ title }}</h1>
-<p>Location: <a href="{{ ('/venues/' + (venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ venue }}</a>, {{ location }}</p>
-<p>Date: {{ date | date('cccc dd LLLL y') }}</p>
+<div class="card bg-neutral text-neutral-content flex w-auto max-w-lg shadow-2xl mx-auto not-prose my-12">
+    <div class="card-body">
+        <h1 class="card-title flex justify-between">
+            <span>{{ title }}</span>
+        </h1>
 
-<ul>
-    {% for band in bands %}
-        <li>{{ band }}</li>
-    {% endfor %}
-</ul>
+        <p><em>Location</em>: <a class="link" href="{{ ('/venues/' + (venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ venue }}</a>, {{ location }}</p>
 
-{{ content | safe }}
+        <p><em>Date</em>: {{ date | date('cccc dd LLLL y') }}</p>
+
+        <ul class="list-disc list-outside pl-4">
+            {% for band in bands %}
+                <li>{{ band }}</li>
+            {% endfor %}
+        </ul>
+
+        {{ content | safe }}
+    </div>
+</div>

@@ -8,22 +8,25 @@ permalink: /locations/{{ location | slugify }}/
 eleventyComputed:
   title: "Events in {{ location }}"
 ---
-<h1>{{ location }}</h1>
+<div class="container my-8 mx-auto prose md:prose-xl">
+    <h2 class="mb-2 md:mb-4 text-center">{{ location }}</h2>
+    {{ content | safe }}
+</div>
 
-<h2>Upcoming Events…</h2>
-<ul>
-    {% for event in collections[location] | upcoming %}
-        <li>
-            <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}">{{ event.data.date | date('yyyy-LL-dd') }} - {{ event.data.title }}</a>
-        </li>
-    {% endfor %}
-</ul>
+{% if (collections[location] | upcoming).length > 0 %}
+<div class="divider divider-accent">Upcoming Events…</div>
 
-<h2>Previous Events…</h2>
-<ul>
-    {% for event in collections[location] | past | reverse %}
-        <li>
-            <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}">{{ event.data.date | date('yyyy-LL-dd') }} - {{ event.data.title }}</a>
-        </li>
-    {% endfor %}
-</ul>
+<div class="container mx-auto py-8">
+    {%- from 'component.njk' import component -%}
+    {{ component('event/timeline', collections[location] | upcoming) }}
+</div>
+{% endif %}
+
+{% if (collections[location] | past).length > 0 %}
+<div class="divider divider-accent">Previous Events…</div>
+
+<div class="container mx-auto py-8">
+    {%- from 'component.njk' import component -%}
+    {{ component('event/timeline', collections[location] | past | reverse) }}
+</div>
+{% endif %}

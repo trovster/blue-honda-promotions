@@ -1,12 +1,16 @@
 ---
 title: Locations
 ---
-<h1>{{ title }}</h1>
+<div class="container my-8 mx-auto prose md:prose-xl">
+    <h2 class="mb-2 md:mb-4">{{ title }}</h2>
 
-<ul>
-    {% for location in collections.locationNames %}
-        <li>
-            <a href="{{ ('/locations/' + (location | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ location }}</a>
-        </li>
-    {% endfor %}
-</ul>
+    <ul class="list-disc pl-4 not-prose">
+        {% for location in collections.locationNames %}
+            <li>
+                <a href="{{ ('/locations/' + (location | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}" class="link">{{ location }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+

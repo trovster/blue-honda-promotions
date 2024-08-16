@@ -1,12 +1,15 @@
 ---
 title: Upcoming Events
 ---
-<h1>{{ title }}</h1>
+<div class="container my-8 mx-auto prose md:prose-xl">
+    <h2 class="mb-2 md:mb-4">{{ title }}</h2>
+    <p class="prose-lead">
+        We have a range of venues and locations, so you can always find
+        something to watch. Here are the upcoming events…
+    </p>
+</div>
 
-<ul>
-    {% for event in collections.events | upcoming %}
-        <li>
-            <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}">{{ event.data.date | date('yyyy-LL-dd') }} - {{ event.data.title }}</a>
-        </li>
-    {% endfor %}
-</ul>
+<div class="container mx-auto my-8">
+    {%- from 'component.njk' import component -%}
+    {{ component('event/timeline', collections.events | upcoming) }}
+</div>

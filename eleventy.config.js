@@ -2,6 +2,7 @@ import 'dotenv/config'
 import { EleventyHtmlBasePlugin } from '@11ty/eleventy'
 import collections from './src/_collections/index.js'
 import filters from './src/_filters/index.js'
+import plugins from './src/_plugins/index.js'
 
 export default config => {
   // plugins…
@@ -21,6 +22,18 @@ export default config => {
     const [key, collection] = item
     config.addCollection(key, collection)
   })
+
+  // plugins…
+  Object.entries(plugins).forEach(item => {
+    const [key, plugin] = item
+    config.addPlugin(plugin)
+  })
+
+  config.addWatchTarget('./src/css')
+  config.addWatchTarget('./src/js')
+  config.setDataDeepMerge(true)
+  config.setServerPassthroughCopyBehavior("passthrough")
+  config.setQuietMode(true)
 
   return {
     dir: {

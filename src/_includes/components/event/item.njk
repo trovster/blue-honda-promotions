@@ -1,13 +1,25 @@
-{%- macro component(event, class) -%}
-<div class="{{ class }}">
-    <h1>Next Event: {{ event.data.title }}</h1>
-    <p>Location: <a href="{{ ('/venues/' + (event.data.venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ event.data.venue }}</a>, {{ event.data.location }}</p>
-    <p>Date: {{ event.data.date | date('cccc dd LLLL y') }}</p>
+{%- macro component(event) -%}
+    <div class="card indicator bg-neutral text-neutral-content flex w-auto max-w-lg shadow-2xl mx-auto not-prose">
+        <div class="card-body">
+            <h1 class="card-title flex justify-between">
+                <span>{{ event.data.title }}</span>
+            </h1>
 
-    <ul>
-        {% for band in event.data.bands %}
-            <li>{{ band }}</li>
-        {% endfor %}
-    </ul>
-</div>
+            <p><em>Location</em>: <a class="link" href="{{ ('/venues/' + (event.data.venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ event.data.venue }}</a>, {{ event.data.location }}</p>
+
+            <p><em>Date</em>: {{ event.data.date | date('cccc dd LLLL y') }}</p>
+
+            <ul class="list-disc list-outside pl-4">
+                {% for band in event.data.bands %}
+                    <li>{{ band }}</li>
+                {% endfor %}
+            </ul>
+
+            <div class="card-actions mt-2">
+                <a href="{{ event.url }}" class="btn btn-sm btn-secondary">View Event</a>
+            </div>
+        </div>
+
+        <span class="indicator-item indicator-top indicator-center badge badge-lg badge-secondary">Next Event</span>
+    </div>
 {%- endmacro -%}
