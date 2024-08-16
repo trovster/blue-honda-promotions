@@ -8,7 +8,11 @@ layout: base.njk
                 <span>{{ title }}</span>
             </h1>
 
+            {% if (collections.venues | pluck(venue)).length %}
             <p><strong>Location</strong>: <a class="link" href="{{ ('/venues/' + (venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ venue }}</a>, {{ location }}</p>
+            {% else %}
+            <p><strong>Location</strong>: {{ venue }}, {{ location }}</p>
+            {% endif %}
 
             <p><strong>Date</strong>: {{ date | date('cccc dd LLLL y') }}</p>
 
@@ -26,7 +30,7 @@ layout: base.njk
 {% if (collections[location] | upcoming | exclude(page.url)).length > 0 %}
 <div class="divider divider-accent">Upcoming Events in {{ location }}…</div>
 
-<div class="container mx-auto py-8">
+<div class="container mx-auto my-8">
     {%- from 'component.njk' import component with context -%}
     {{ component('event/timeline', collections[location] | upcoming | exclude(page.url)) }}
 </div>
@@ -35,7 +39,7 @@ layout: base.njk
 {% if (collections[location] | past | exclude(page.url)).length > 0 %}
 <div class="divider divider-accent">Previous Events in {{ location }}…</div>
 
-<div class="container mx-auto py-8">
+<div class="container mx-auto my-8">
     {%- from 'component.njk' import component with context -%}
     {{ component('event/timeline', collections[location] | past | exclude(page.url) | reverse) }}
 </div>

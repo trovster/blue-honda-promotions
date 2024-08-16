@@ -10,7 +10,7 @@ layout: base.njk
 {% if (collections[title] | upcoming).length > 0 %}
 <div class="divider divider-accent">Upcoming Events…</div>
 
-<div class="container mx-auto py-8">
+<div class="container mx-auto my-8">
     {%- from 'component.njk' import component with context -%}
     {{ component('event/timeline', collections[title] | upcoming) }}
 </div>
@@ -19,7 +19,7 @@ layout: base.njk
 {% if (collections[title] | past).length > 0 %}
 <div class="divider divider-accent">Previous Events…</div>
 
-<div class="container mx-auto py-8">
+<div class="container mx-auto my-8">
     {%- from 'component.njk' import component with context -%}
     {{ component('event/timeline', collections[title] | past | reverse) }}
 </div>

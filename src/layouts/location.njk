@@ -16,7 +16,7 @@ eleventyComputed:
 {% if (collections[location] | upcoming).length > 0 %}
 <div class="divider divider-accent">Upcoming Events…</div>
 
-<div class="container mx-auto py-8">
+<div class="container mx-auto my-8">
     {%- from 'component.njk' import component with context -%}
     {{ component('event/timeline', collections[location] | upcoming) }}
 </div>
@@ -25,7 +25,7 @@ eleventyComputed:
 {% if (collections[location] | past).length > 0 %}
 <div class="divider divider-accent">Previous Events…</div>
 
-<div class="container mx-auto py-8">
+<div class="container mx-auto my-8">
     {%- from 'component.njk' import component with context -%}
     {{ component('event/timeline', collections[location] | past | reverse) }}
 </div>
