@@ -22,3 +22,21 @@ layout: base.njk
         </div>
     </div>
 </div>
+
+{% if (collections[location] | upcoming).length > 0 %}
+<div class="divider divider-accent">Upcoming Events in {{ location }}…</div>
+
+<div class="container mx-auto py-8">
+    {%- from 'component.njk' import component with context -%}
+    {{ component('event/timeline', collections[location] | upcoming) }}
+</div>
+{% endif %}
+
+{% if (collections[location] | past).length > 0 %}
+<div class="divider divider-accent">Previous Events in {{ location }}…</div>
+
+<div class="container mx-auto py-8">
+    {%- from 'component.njk' import component with context -%}
+    {{ component('event/timeline', collections[location] | past | reverse) }}
+</div>
+{% endif %}
