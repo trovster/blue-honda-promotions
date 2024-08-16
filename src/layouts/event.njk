@@ -1,22 +1,24 @@
 ---
 layout: base.njk
 ---
-<div class="card bg-neutral text-neutral-content flex w-auto max-w-lg shadow-2xl mx-auto not-prose my-12">
-    <div class="card-body">
-        <h1 class="card-title flex justify-between">
-            <span>{{ title }}</span>
-        </h1>
+<div class="container my-8 mx-auto max-w-prose">
+    <div class="card bg-neutral text-neutral-content flex w-auto shadow-2xl mx-auto not-prose my-12">
+        <div class="card-body">
+            <h1 class="card-title flex justify-between">
+                <span>{{ title }}</span>
+            </h1>
 
-        <p><em>Location</em>: <a class="link" href="{{ ('/venues/' + (venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ venue }}</a>, {{ location }}</p>
+            <p><strong>Location</strong>: <a class="link" href="{{ ('/venues/' + (venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ venue }}</a>, {{ location }}</p>
 
-        <p><em>Date</em>: {{ date | date('cccc dd LLLL y') }}</p>
+            <p><strong>Date</strong>: {{ date | date('cccc dd LLLL y') }}</p>
 
-        <ul class="list-disc list-outside pl-4">
-            {% for band in bands %}
-                <li>{{ band }}</li>
-            {% endfor %}
-        </ul>
+            <ul class="list-disc list-outside pl-4">
+                {% for band in bands %}
+                    <li>{{ band }}</li>
+                {% endfor %}
+            </ul>
 
-        {{ content | safe }}
+            {{ content | safe }}
+        </div>
     </div>
 </div>

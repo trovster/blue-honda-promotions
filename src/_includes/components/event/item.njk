@@ -5,9 +5,9 @@
                 <span>{{ event.data.title }}</span>
             </h1>
 
-            <p><em>Location</em>: <a href="{{ ('/venues/' + (event.data.venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}" class="link">{{ event.data.venue }}</a>, {{ event.data.location }}</p>
+            <p><strong>Location</strong>: <a href="{{ ('/venues/' + (event.data.venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}" class="link">{{ event.data.venue }}</a>, {{ event.data.location }}</p>
 
-            <p><em>Date</em>: {{ event.data.date | date('cccc dd LLLL y') }}</p>
+            <p><strong>Date</strong>: {{ event.data.date | date('cccc dd LLLL y') }}</p>
 
             <ul class="list-disc list-outside pl-4">
                 {% for band in event.data.bands %}
