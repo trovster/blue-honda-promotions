@@ -33,12 +33,13 @@
     "start": "npm run 11ty -- --serve --quiet & npm run css -- --watch",
     "prebuild": "npm run clean",
     "build": "npm run 11ty",
-    "postbuild": "npm run css",
+    "postbuild": "npm run css -- --minify",
     "prettier": "npx prettier --write src"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0-beta.1",
     "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.5",
     "dotenv": "^16.4.5",
     "postcss": "^8.4.41",
     "postcss-cli": "^11.0.0",
