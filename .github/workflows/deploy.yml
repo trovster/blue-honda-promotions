@@ -38,6 +38,9 @@ jobs:
             NODE_ENV: production
             URL: ${{ steps.deployment.outputs.page_url }}
         run: |
+          echo "URL: $URL"
+          export NODE_ENV=$NODE_ENV
+          export URL=$URL
           npm install
           npm run build
 
