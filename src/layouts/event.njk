@@ -23,20 +23,20 @@ layout: base.njk
     </div>
 </div>
 
-{% if (collections[location] | upcoming).length > 0 %}
+{% if (collections[location] | upcoming | exclude(page.url)).length > 0 %}
 <div class="divider divider-accent">Upcoming Events in {{ location }}…</div>
 
 <div class="container mx-auto py-8">
     {%- from 'component.njk' import component with context -%}
-    {{ component('event/timeline', collections[location] | upcoming) }}
+    {{ component('event/timeline', collections[location] | upcoming | exclude(page.url)) }}
 </div>
 {% endif %}
 
-{% if (collections[location] | past).length > 0 %}
+{% if (collections[location] | past | exclude(page.url)).length > 0 %}
 <div class="divider divider-accent">Previous Events in {{ location }}…</div>
 
 <div class="container mx-auto py-8">
     {%- from 'component.njk' import component with context -%}
-    {{ component('event/timeline', collections[location] | past | reverse) }}
+    {{ component('event/timeline', collections[location] | past | exclude(page.url) | reverse) }}
 </div>
 {% endif %}
