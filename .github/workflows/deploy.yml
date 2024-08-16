@@ -19,7 +19,7 @@ jobs:
   build-and-deploy:
     environment:
       name: github-pages
-      GITHUB_URL: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -34,6 +34,9 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Install and Build 🔧
+        env:
+            NODE_ENV: production
+            URL: ${{ steps.deployment.outputs.page_url }}
         run: |
           npm install
           npm run build
