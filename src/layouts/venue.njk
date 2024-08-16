@@ -11,7 +11,7 @@ layout: base.njk
 <div class="divider divider-accent">Upcoming Events…</div>
 
 <div class="container mx-auto py-8">
-    {%- from 'component.njk' import component -%}
+    {%- from 'component.njk' import component with context -%}
     {{ component('event/timeline', collections[title] | upcoming) }}
 </div>
 {% endif %}
@@ -20,7 +20,7 @@ layout: base.njk
 <div class="divider divider-accent">Previous Events…</div>
 
 <div class="container mx-auto py-8">
-    {%- from 'component.njk' import component -%}
+    {%- from 'component.njk' import component with context -%}
     {{ component('event/timeline', collections[title] | past | reverse) }}
 </div>
 {% endif %}

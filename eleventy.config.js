@@ -32,7 +32,7 @@ export default config => {
   config.addWatchTarget('./src/css')
   config.addWatchTarget('./src/js')
   config.setDataDeepMerge(true)
-  config.setServerPassthroughCopyBehavior("passthrough")
+  config.setServerPassthroughCopyBehavior('passthrough')
   config.setQuietMode(true)
 
   return {

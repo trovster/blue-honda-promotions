@@ -10,6 +10,6 @@ title: Upcoming Events
 </div>
 
 <div class="container mx-auto my-8">
-    {%- from 'component.njk' import component -%}
+    {%- from 'component.njk' import component with context -%}
     {{ component('event/timeline', collections.events | upcoming) }}
 </div>
