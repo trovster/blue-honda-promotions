@@ -1,6 +1,6 @@
 import date from "./date.js"
 import absoluteUrl from "./absoluteUrl.js"
-import { upcoming, past, exclude, next, limit } from "./collections.js"
+import { upcoming, past, exclude, pluck, next, limit } from "./collections.js"
 
 export default {
     date,
@@ -8,6 +8,7 @@ export default {
     upcoming,
     past,
     exclude,
+    pluck,
     next,
     limit,
 }
