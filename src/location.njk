@@ -4,6 +4,9 @@ pagination:
   size: 1
   alias: location
 permalink: /locations/{{ location | slugify }}/
+tags:
+  - location
+  - "{{ location }}"
 eleventyComputed:
   title: "Events in {{ location }}"
 ---

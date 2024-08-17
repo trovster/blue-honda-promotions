@@ -4,6 +4,10 @@ pagination:
   size: 1
   alias: venue
 permalink: "venues/{{ venue.data.title | slugify }}/"
+tags:
+  - venue
+  - "{{ event.data.title }}"
+  - "{{ event.data.city }}"
 eleventyComputed:
   title: "{{ venue.data.title }}"
   location: "{{ venue.data.city }}"
