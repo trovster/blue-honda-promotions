@@ -1,7 +1,8 @@
 export default (collection) => {
     const items = {}
 
-    collection.getAll()
+    collection
+        .getAll()
         .map((item) => {
             return item.data.collections.events
         })

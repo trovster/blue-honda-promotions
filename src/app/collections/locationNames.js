@@ -1,11 +1,11 @@
-
 import slugify from "slugify"
 
 export default (collection) => {
     const items = new Set()
     const locations = new Set()
 
-    collection.getAll()
+    collection
+        .getAll()
         .map((item) => {
             return item.data.collections.events
         })
@@ -26,9 +26,9 @@ export default (collection) => {
                     url: `/locations/${slugify(item.data.location, {
                         remove: /[\.]+/,
                         decamelize: false,
-                        lower: true
+                        lower: true,
                     })}/`,
-                }
+                },
             })
         })
 

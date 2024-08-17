@@ -49,7 +49,7 @@ const exclude = (arr, url) => {
  * @param {String} attr - item attribute to compare against.
  * @returns {Array} filtered items
  */
-const pluck = (arr, value, attr = 'data.title') => {
+const pluck = (arr, value, attr = "data.title") => {
     return (arr ?? []).filter((item) => _.get(item, attr) === value)
 }
 
