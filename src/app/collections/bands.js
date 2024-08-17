@@ -1,8 +1,13 @@
 export default (collection) => {
-    const items = {}
+    const items = new Set()
 
-    // @todo locations should be from events…
-    collection.getFilteredByTag("events").forEach((item) => {
+    collection.getAll()
+        .map((item) => {
+            return item.data.collections.events
+        })
+        .pop()
+        .filter((item) => "bands" in item.data)
+        .forEach((item) => {
         if (!item.data.bands) return
 
         item.data.bands.forEach((band) => {
@@ -14,5 +19,5 @@ export default (collection) => {
         })
     })
 
-    return items
+    return [...items].sort()
 }

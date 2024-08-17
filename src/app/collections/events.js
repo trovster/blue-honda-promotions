@@ -16,6 +16,8 @@ export default async () => {
         },
         page: {
           url: `/events/${slugify(event.title, {
+            remove: /[\.]+/,
+            decamelize: false,
             lower: true
           })}/`,
         }

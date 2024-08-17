@@ -6,6 +6,10 @@ export default (collection) => {
     const locations = new Set()
 
     collection.getAll()
+        .map((item) => {
+            return item.data.collections.events
+        })
+        .pop()
         .filter((item) => "location" in item.data)
         .forEach((item) => {
             if (!item.data.location || locations[item.data.location]) return
@@ -20,11 +24,13 @@ export default (collection) => {
                 },
                 page: {
                     url: `/locations/${slugify(item.data.location, {
+                        remove: /[\.]+/,
+                        decamelize: false,
                         lower: true
                     })}/`,
                 }
             })
         })
 
-    return [...items].sort()
+    return [...items].sort((a, b) => a.data.title.localeCompare(b.data.title))
 }
