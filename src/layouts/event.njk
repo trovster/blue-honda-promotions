@@ -8,7 +8,7 @@ layout: base.njk
                 <span>{{ title }}</span>
             </h1>
 
-            {% if (collections.venues | pluck(venue)).length %}
+            {% if (venues | pluck(venue)).length %}
             <p><strong>Location</strong>: <a class="link" href="{{ ('/venues/' + (venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}">{{ venue }}</a>, {{ location }}</p>
             {% else %}
             <p><strong>Location</strong>: {{ venue }}, {{ location }}</p>

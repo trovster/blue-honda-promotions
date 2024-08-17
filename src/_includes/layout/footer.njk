@@ -10,7 +10,7 @@
             <h3 class="footer-title">Venues</h3>
             <nav>
                 <ul class="menu menu-xs p-0 -mx-2">
-                    {% for venue in collections.venues %}
+                    {% for venue in venues %}
                         <li>
                             <a href="{{ venue.url | url | absoluteUrl(config.baseUrl) }}">{{ venue.data.title }}</a>
                         </li>
