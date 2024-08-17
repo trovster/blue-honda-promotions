@@ -10,8 +10,6 @@ title: Welcome
   </div>
 </div>
 
-{# {% include 'stats.njk' %} #}
-
 <div class="container mx-auto my-10 md:my-16">
     {%- from 'component.njk' import component with context -%}
     {{ component('event/item', collections.events | next) }}

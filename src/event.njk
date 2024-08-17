@@ -1,5 +1,13 @@
 ---
-layout: base.njk
+pagination:
+  data: collections.events
+  size: 1
+  alias: event
+permalink: "events/{{ event.data.title | slugify }}/"
+eleventyComputed:
+  title: "{{ event.data.title }}"
+  venue: "{{ event.data.venue }}"
+  location: "{{ event.data.location }}"
 ---
 <div class="container my-8 mx-auto max-w-prose">
     <div class="card bg-neutral text-neutral-content flex w-auto shadow-2xl mx-auto not-prose my-12">
@@ -8,17 +16,17 @@ layout: base.njk
                 <span>{{ title }}</span>
             </h1>
 
-            {% if (venues | pluck(venue)).length %}
+            {% if (collections.venues | pluck(venue)).length %}
             <p><strong>Location</strong>: <a href="/venues/{{ venue | slugify }}/" class="link">{{ venue }}</a>, {{ location }}</p>
             {% else %}
             <p><strong>Location</strong>: {{ venue }}, {{ location }}</p>
             {% endif %}
 
-            <p><strong>Date</strong>: {{ date | date('cccc dd LLLL y') }}</p>
+            <p><strong>Date</strong>: {{ event.data.date | date('cccc dd LLLL y') }}</p>
 
             <ul class="list-disc list-outside pl-4">
-                {% for band in bands %}
-                    <li>{{ band }}</li>
+                {% for artist in event.data.artists %}
+                    <li>{{ artist }}</li>
                 {% endfor %}
             </ul>
 

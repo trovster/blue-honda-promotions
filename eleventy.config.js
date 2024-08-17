@@ -1,8 +1,8 @@
 import 'dotenv/config'
 import { EleventyHtmlBasePlugin } from '@11ty/eleventy'
-import collections from './src/_collections/index.js'
-import filters from './src/_filters/index.js'
-import plugins from './src/_plugins/index.js'
+import collections from './src/app/collections/index.js'
+import filters from './src/app/filters/index.js'
+import plugins from './src/app/plugins/index.js'
 
 export default config => {
   // plugins…
@@ -39,7 +39,10 @@ export default config => {
     dir: {
       input: 'src',
       output: 'dist',
-      layouts: 'layouts'
+      data: 'app/data',
+      collections: 'app/collections',
+      layouts: 'app/layouts',
+      includes: 'app/includes'
     },
     templateFormats: ['html', 'njk', 'md', '11ty.js'],
     markdownTemplateEngine: 'njk',

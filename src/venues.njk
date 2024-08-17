@@ -5,7 +5,7 @@ title: Venues
     <h2 class="mb-2 md:mb-4">{{ title }}</h2>
 
     <ul class="list-disc pl-4 space-y-2 not-prose">
-        {% for venue in venues %}
+        {% for venue in collections.venues %}
             <li>
                 <a href="{{ venue.url }}" class="link">{{ venue.data.title }}</a>
             </li>

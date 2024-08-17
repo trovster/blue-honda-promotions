@@ -1,4 +1,4 @@
-import api from "../api/index.js"
+import api from "../../api/index.js"
 import slugify from "slugify"
 
 export default async () => {
@@ -9,6 +9,10 @@ export default async () => {
       return {
         data: {
           ...venue,
+          tags: [
+            venue.title,
+            venue.city
+          ],
         },
         url: `/venues/${slugify(venue.title, {
           lower: true

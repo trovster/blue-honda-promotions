@@ -4,11 +4,11 @@ import _ from "@11ty/lodash-custom"
 const limit = (arr, limit = 1) => (arr ?? []).slice(0, limit)
 
 const upcoming = (arr) => {
-    return (arr ?? []).filter((post) => DateTime.fromISO(post.data.date.toISOString()) >= DateTime.now())
+    return (arr ?? []).filter((post) => DateTime.fromISO(post.data.date) >= DateTime.now())
 }
 
 const past = (arr) => {
-    return (arr ?? []).filter((post) => DateTime.fromISO(post.data.date.toISOString()) < DateTime.now())
+    return (arr ?? []).filter((post) => DateTime.fromISO(post.data.date) < DateTime.now())
 }
 
 const exclude = (arr, url) => {

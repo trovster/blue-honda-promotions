@@ -1,6 +1,7 @@
 export default (collection) => {
     const items = {}
 
+    // @todo locations should be from events…
     collection.getFilteredByTag("events").forEach((item) => {
         if (!item.data.bands) return
 

@@ -1,16 +1,18 @@
 ---
 pagination:
-  data: venues
+  data: collections.venues
   size: 1
   alias: venue
 permalink: "venues/{{ venue.data.title | slugify }}/"
 eleventyComputed:
   title: "{{ venue.data.title }}"
+  location: "{{ venue.data.city }}"
+  description: "{{ venue.data.description }}"
 ---
 <div class="container my-8 mx-auto prose md:prose-xl">
-    <h2 class="mb-2 md:mb-4">{{ title }}, <span>{{ venue.data.city }}</span></h2>
+    <h2 class="mb-2 md:mb-4">{{ title }}, <span>{{ location }}</span></h2>
 
-    {{ venue.data.description | safe }}
+    {{ description | safe }}
 
     {% if venue.data.url %}
     <p><a href="{{ venue.data.url }}" class="link">{{ venue.data.url }}</a></p>

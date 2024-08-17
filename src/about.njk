@@ -1,10 +1,15 @@
 ---
 title: About
 ---
-<div class="container my-8 mx-auto prose md:prose-xl md:min-h-[400px]">
+<div class="container my-8 mx-auto prose md:prose-xl">
     <h2 class="mb-2 md:mb-4">{{ title }}</h2>
     <p class="prose-lead">
         UK based live music promoters looking for pop-punk, ska-punk, emo and
         adjacent bands to play North Lincolnshire, UK.
     </p>
+</div>
+
+<div class="container mx-auto my-10 md:my-16">
+    {%- from 'component.njk' import component with context -%}
+    {{ component('event/item', collections.events | next) }}
 </div>
