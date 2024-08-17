@@ -12,7 +12,7 @@
                 <ul class="menu menu-xs p-0 -mx-2">
                     {% for venue in collections.venues %}
                         <li>
-                            <a href="{{ venue.url }}">{{ venue.data.title }}</a>
+                            <a href="{{ venue.page.url }}">{{ venue.data.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>
