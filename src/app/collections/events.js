@@ -14,9 +14,11 @@ export default async () => {
             event.location
           ],
         },
-        url: `/events/${slugify(event.title, {
-          lower: true
-        })}/`,
+        page: {
+          url: `/events/${slugify(event.title, {
+            lower: true
+          })}/`,
+        }
       }
     })
     .sort((a, b) => a.data.date.localeCompare(b.data.date))

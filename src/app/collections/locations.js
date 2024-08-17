@@ -2,9 +2,7 @@ export default (collection) => {
     const items = {}
 
     collection.getAll()
-        .filter(function (item) {
-            return "location" in item.data;
-        })
+        .filter((item) => "location" in item.data)
         .forEach((item) => {
             if (!item.data.location) return
 

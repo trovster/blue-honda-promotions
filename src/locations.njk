@@ -7,7 +7,7 @@ title: Locations
     <ul class="list-disc pl-4 not-prose">
         {% for location in collections.locationNames %}
             <li>
-                <a href="/locations/{{ location | slugify }}/" class="link">{{ location }}</a>
+                <a href="{{ location.page.url }}" class="link">{{ location.data.title }}</a>
             </li>
         {% endfor %}
     </ul>

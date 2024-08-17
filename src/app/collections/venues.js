@@ -14,9 +14,11 @@ export default async () => {
             venue.city
           ],
         },
-        url: `/venues/${slugify(venue.title, {
-          lower: true
-        })}/`,
+        page: {
+          url: `/venues/${slugify(venue.title, {
+            lower: true
+          })}/`,
+        }
       }
     })
     .sort((a, b) => a.data.title.localeCompare(b.data.title))
