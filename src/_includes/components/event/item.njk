@@ -6,7 +6,7 @@
             </h1>
 
             {% if (venues | pluck(event.data.venue)).length %}
-            <p><strong>Location</strong>: <a href="{{ ('/venues/' + (event.data.venue | slugify) + '/') | url | absoluteUrl(config.baseUrl) }}" class="link">{{ event.data.venue }}</a>, {{ event.data.location }}</p>
+            <p><strong>Location</strong>: <a href="/venues/{{ event.data.venue | slugify }}/" class="link">{{ event.data.venue }}</a>, {{ event.data.location }}</p>
             {% else %}
             <p><strong>Location</strong>: {{ event.data.venue }}, {{ event.data.location }}</p>
             {% endif %}
@@ -20,7 +20,7 @@
             </ul>
 
             <div class="card-actions mt-2">
-                <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}" class="btn btn-sm btn-secondary">View Event</a>
+                <a href="{{ event.url }}" class="btn btn-sm btn-secondary">View Event</a>
             </div>
         </div>
 

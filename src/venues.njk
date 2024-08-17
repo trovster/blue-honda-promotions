@@ -7,7 +7,7 @@ title: Venues
     <ul class="list-disc pl-4 space-y-2 not-prose">
         {% for venue in venues %}
             <li>
-                <a href="{{ venue.url | url | absoluteUrl(config.baseUrl) }}" class="link">{{ venue.data.title }}</a>
+                <a href="{{ venue.url }}" class="link">{{ venue.data.title }}</a>
             </li>
         {% endfor %}
     </ul>

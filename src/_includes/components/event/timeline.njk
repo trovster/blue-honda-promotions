@@ -17,9 +17,9 @@
 
         <div class="pb-10 {{ 'timeline-end' if loop.index % 2 === 0 else 'timeline-start md:text-end' }}">
           <time class="font-mono italic">{{ event.data.date | date('yyyy-LL-dd') }}</time>
-          <h3 class="text-lg font-black"><a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}">{{ event.data.title }}</a></h3>
+          <h3 class="text-lg font-black"><a href="{{ event.url }}">{{ event.data.title }}</a></h3>
           <p class="mb-2">{{ event.data.venue }}, {{ event.data.location }}</p>
-          <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}" class="btn btn-sm btn-secondary">View Event</a>
+          <a href="{{ event.url }}" class="btn btn-sm btn-secondary">View Event</a>
         </div>
         <hr/>
       </li>

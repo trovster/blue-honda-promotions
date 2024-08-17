@@ -36,10 +36,20 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
+      - name: Create .env file
+        env:
+          API_BASE: ${{ vars.API_BASE }}
+          API_KEY: ${{ secrets.API_KEY }}
+        run: |
+          touch .env
+          echo URL="${{ vars.URL }}" >> .env
+          echo API_BASE="${{ vars.API_BASE }}" >> .env
+          echo API_KEY="${{ secrets.API_KEY }}" >> .env
+
       - name: Install and Build 🔧
         run: |
           npm install
-          npm run build
+          npm run build --pathprefix=--pathprefix=/blue-honda-promotions/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

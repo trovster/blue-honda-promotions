@@ -6,7 +6,7 @@ layout: base.njk
 <ul>
     {% for event in collections[tag] | reverse %}
         <li>
-            <a href="{{ event.url | url | absoluteUrl(config.baseUrl) }}">{{ event.data.date | date('yyyy-LL-dd') }} - {{ event.data.title }}</a>
+            <a href="{{ event.url }}">{{ event.data.date | date('yyyy-LL-dd') }} - {{ event.data.title }}</a>
         </li>
     {% endfor %}
 </ul>
