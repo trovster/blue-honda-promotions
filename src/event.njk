@@ -4,14 +4,14 @@ pagination:
   size: 1
   alias: event
 permalink: "/events/{{ event.data.date | date('y-LL-dd') }}:{{ event.data.title | slugify }}/"
-tags:
-  - event
-  - "{{ event.data.venue }}"
-  - "{{ event.data.location }}"
 eleventyComputed:
   title: "{{ event.data.title }}"
   venue: "{{ event.data.venue }}"
   location: "{{ event.data.location }}"
+  tags:
+    - event
+    - "{{ event.data.venue }}"
+    - "{{ event.data.location }}"
 ---
 <div class="container my-8 mx-auto max-w-prose">
     <div class="card bg-neutral text-neutral-content flex w-auto shadow-2xl mx-auto not-prose my-12">
