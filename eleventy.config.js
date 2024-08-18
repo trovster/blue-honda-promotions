@@ -31,6 +31,10 @@ export default (config) => {
 
     config.addWatchTarget("./src/css")
     config.addWatchTarget("./src/js")
+    config.addPassthroughCopy({
+        "node_modules/theme-change/index.js": "js/theme-change.js",
+        "src/js/site.js": "js/site.js",
+    })
     config.setDataDeepMerge(true)
     config.setServerPassthroughCopyBehavior("passthrough")
     config.setQuietMode(true)
