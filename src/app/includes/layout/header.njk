@@ -1,4 +1,4 @@
-<header class="navbar bg-neutral text-neutral-content">
+<header class="navbar bg-neutral text-neutral-content md:sticky top-0 z-50">
     <div class="flex-none sm:hidden">
         <button class="btn btn-square btn-ghost">
             <svg
@@ -15,18 +15,11 @@
         </button>
     </div>
 
-    <div class="flex-1">
-        <a href="/" class="btn btn-ghost text-xl">{{ site.title }}</a>
+    <div class="flex-1 items-center max-sm:-ml-8">
+        <a href="/" class="btn text-nowrap btn-wide btn-ghost btn-lg max-sm:mx-auto">{{ site.title }}</a>
     </div>
 
-    <div class="hidden sm:flex flex-none justify-end">
-        <ul class="menu menu-horizontal px-1">
-            <li><a href="/about/">About</a></li>
-            <li><a href="/upcoming/">Upcoming Events</a></li>
-            <li><a href="/venues/">Venues</a></li>
-            <li><a href="/locations/">Locations</a></li>
-        </ul>
-    </div>
+    {% include 'layout/nav.njk' %}
 </header>
 
 

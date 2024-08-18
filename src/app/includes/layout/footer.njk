@@ -1,8 +1,11 @@
 <footer>
-    <div class="footer bg-neutral text-neutral-content p-10">
+    <div class="footer bg-neutral text-neutral-content p-8">
         <aside class="md:max-w-sm">
             <h3 class="footer-title">About</h3>
-            <p>{{ site.description }}</p>
+            <p>
+                {{ site.description }} Covering music events in North East
+                Lincolnshire and in Hull.
+            </p>
             <p><a href="/about/" class="link">Read more</a></p>
         </aside>
 
@@ -33,9 +36,13 @@
         </div>
     </div>
 
-    <footer class="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4">
-        © {% year %}
+    <footer class="footer bg-base-200 text-base-content border-base-300 border-t px-8 flex items-center">
+        {# <div class="flex items-center justify-between"> #}
+            <div>
+                © {% year %}
+            </div>
 
-        {% include 'toggle.njk' %}
+            {% include 'toggle.njk' %}
+        {# </div> #}
     </div>
 </footer>

@@ -1,16 +1,16 @@
 ---
 title: Welcome
 ---
-<div class="hero bg-base-200 md:min-h-screen">
+<div class="hero bg-base-200 md:min-h-[500px]">
   <div class="hero-content text-center">
-    <div class="max-w-xs sm:max-w-xl py-4 space-y-6">
+    <div class="max-w-md sm:max-w-xl py-4 space-y-6">
       <h1 class="text-3xl sm:text-5xl font-bold">{{ site.description }}</h1>
       <a href="/about/" class="btn btn-primary">Find Out More</a>
     </div>
   </div>
 </div>
 
-<div class="container mx-auto my-10 md:my-16">
+<div class="sm:container mx-auto my-10 md:my-16">
     {%- from 'component.njk' import component with context -%}
     {{ component('event/item', collections.events | next) }}
 </div>
