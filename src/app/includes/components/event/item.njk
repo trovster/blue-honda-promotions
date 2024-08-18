@@ -1,5 +1,5 @@
 {%- macro component(event, config) -%}
-    <div class="card indicator max-sm:rounded-none bg-neutral text-neutral-content flex w-auto max-w-screen-sm shadow-2xl mx-auto not-prose">
+    <div class="card indicator max-sm:rounded-none bg-neutral text-neutral-content flex w-auto max-w-screen-sm md:shadow-2xl mx-auto not-prose">
         <div class="card-body">
             <h1 class="card-title flex justify-between">
                 <span>{{ event.data.title }}</span>
@@ -20,10 +20,10 @@
             </ul>
 
             <div class="card-actions mt-2">
-                <a href="{{ event.page.url }}" class="btn btn-sm btn-secondary">View Event</a>
+                <a href="{{ event.page.url }}" class="btn btn-sm btn-accent">View Event</a>
             </div>
         </div>
 
-        <span class="indicator-item indicator-top indicator-center badge badge-lg badge-secondary">Next Event</span>
+        <span class="indicator-item indicator-top indicator-center badge p-4 font-bold badge-secondary">Next Event</span>
     </div>
 {%- endmacro -%}

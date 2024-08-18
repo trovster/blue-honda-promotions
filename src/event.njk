@@ -13,10 +13,9 @@ eleventyComputed:
     - "{{ event.data.venue }}"
     - "{{ event.data.location }}"
 ---
-<div class="container my-8 mx-auto max-w-prose">
-    <div class="card bg-neutral text-neutral-content flex w-auto shadow-2xl mx-auto not-prose my-12">
-        <div class="card-body">
-            <h1 class="card-title flex justify-between">
+<div class="bg-base-200 mb-8 p-8 border-secondary border-t-4">
+    <div class="sm:container sm:max-w-prose mx-auto space-y-3">
+            <h1 class="font-bold mb-4 text-3xl sm:text-5xl">
                 <span>{{ title }}</span>
             </h1>
 
@@ -36,7 +35,6 @@ eleventyComputed:
 
             {{ content | safe }}
         </div>
-    </div>
 </div>
 
 {% if (collections.events | where(location, "data.location") | upcoming | exclude(page.url)).length > 0 %}

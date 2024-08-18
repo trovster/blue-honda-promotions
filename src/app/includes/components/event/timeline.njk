@@ -1,8 +1,8 @@
 {%- macro component(events) -%}
   <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
     {% for event in events %}
-      <li>
-        <div class="timeline-middle">
+      <li class="[&_div]:last:pb-4">
+        <div class="timeline-middle !pb-0">
           <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
