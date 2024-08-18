@@ -6,13 +6,14 @@ pagination:
 permalink: /locations/{{ location | slugify }}/
 eleventyComputed:
   title: "Events in {{ location }}"
+  location: "{{ location }}"
   tags:
     - location
     - "{{ location }}"
 ---
 <div class="container my-8 mx-auto prose md:prose-xl">
     <h2 class="mb-2 md:mb-4 text-center">{{ location }}</h2>
-    {{ content | safe }}
+    {{ (collections[location] | first).content | safe }}
 </div>
 
 {% if (collections.events | where(location, "data.location") | upcoming).length > 0 %}
