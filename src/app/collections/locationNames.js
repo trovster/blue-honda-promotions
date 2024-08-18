@@ -1,6 +1,5 @@
-import slugify from "slugify"
-
-export default (collection) => {
+export default (collection, config) => {
+    const slugify = config.getFilter("slugify")
     const items = new Set()
     const locations = new Set()
 
@@ -23,11 +22,7 @@ export default (collection) => {
                     title: item.data.location,
                 },
                 page: {
-                    url: `/locations/${slugify(item.data.location, {
-                        remove: /[\.]+/,
-                        decamelize: false,
-                        lower: true,
-                    })}/`,
+                    url: `/locations/${slugify(item.data.location)}/`,
                 },
             })
         })

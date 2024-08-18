@@ -1,8 +1,8 @@
 import api from "../../api/index.js"
-import slugify from "slugify"
 
-export default async () => {
+export default async (collection, config) => {
     const result = await api("/music/events/locations")
+    const slugify = config.getFilter("slugify")
 
     return result.data
         .map((venue) => {
@@ -12,11 +12,7 @@ export default async () => {
                     tags: [venue.title, venue.city],
                 },
                 page: {
-                    url: `/venues/${slugify(venue.title, {
-                        remove: /[\.]+/,
-                        decamelize: false,
-                        lower: true,
-                    })}/`,
+                    url: `/venues/${slugify(venue.title)}/`,
                 },
             }
         })
