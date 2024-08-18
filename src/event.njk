@@ -3,7 +3,7 @@ pagination:
   data: collections.events
   size: 1
   alias: event
-permalink: "events/{{ event.data.title | slugify }}/"
+permalink: "/events/{{ event.data.date | date('y-LL-dd') }}:{{ event.data.title | slugify }}/"
 tags:
   - event
   - "{{ event.data.venue }}"

@@ -1,4 +1,5 @@
 import api from "../../api/index.js"
+import date from "../filters/date.js"
 import slugify from "slugify"
 
 export default async () => {
@@ -12,7 +13,7 @@ export default async () => {
                     tags: [event.venue, event.location],
                 },
                 page: {
-                    url: `/events/${slugify(event.title, {
+                    url: `/events/${date(event.date, 'y-LL-dd') }:${slugify(event.title, {
                         remove: /[\.]+/,
                         decamelize: false,
                         lower: true,
