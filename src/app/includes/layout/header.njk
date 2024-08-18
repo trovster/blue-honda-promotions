@@ -1,19 +1,5 @@
 <header class="navbar bg-neutral text-neutral-content md:sticky top-0 z-50">
-    <div class="flex-none sm:hidden">
-        <button class="btn btn-square btn-ghost">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                class="inline-block h-5 w-5 stroke-current">
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
-    </div>
+    {% include 'layout/mobile-nav.njk' %}
 
     <div class="flex-1 items-center max-sm:-ml-8">
         <a href="/" class="btn text-nowrap btn-wide btn-ghost btn-lg max-sm:mx-auto">{{ site.title }}</a>
@@ -21,6 +7,3 @@
 
     {% include 'layout/nav.njk' %}
 </header>
-
-
-
