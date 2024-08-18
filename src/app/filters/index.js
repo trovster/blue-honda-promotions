@@ -1,12 +1,13 @@
 import date from "./date.js"
-import { upcoming, past, exclude, where, next, limit } from "./collections.js"
+import { limit, upcoming, past, exclude, where, first, next } from "./collections.js"
 
 export default {
     date,
+    limit,
     upcoming,
     past,
     exclude,
     where,
+    first,
     next,
-    limit,
 }

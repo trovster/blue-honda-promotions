@@ -54,11 +54,19 @@ const where = (arr, value, attr = "data.title") => {
 }
 
 /**
+ * Find the first item.
+ *
+ * @param {Array} arr - items to filter
+ * @returns {Mixed} item
+ */
+const first = (arr) => limit(arr, 1).pop()
+
+/**
  * Find the next item, using the post.data.date.
  *
  * @param {Array} arr - items to filter
  * @returns {Mixed} next item
  */
-const next = (arr) => limit(upcoming(arr), 1).pop()
+const next = (arr) => first(upcoming(arr))
 
-export { limit, upcoming, past, exclude, where, next }
+export { limit, upcoming, past, exclude, where, first, next }
