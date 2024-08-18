@@ -20,7 +20,7 @@ export default config => {
   // collections…
   Object.entries(collections).forEach(item => {
     const [key, collection] = item
-    config.addCollection(key, collection)
+    config.addCollection(key, (collectionsApi) => collection(collectionsApi, config))
   })
 
   // plugins…

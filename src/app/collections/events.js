@@ -1,9 +1,9 @@
 import api from "../../api/index.js"
-import date from "../filters/date.js"
-import slugify from "slugify"
 
-export default async () => {
+export default async (collection, config) => {
     const result = await api("/music/events?per_page=20")
+    const slugify = config.getFilter('slugify')
+    const date = config.getFilter('date')
 
     return result.data
         .map((event) => {
