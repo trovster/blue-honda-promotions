@@ -5,7 +5,7 @@ pagination:
   alias: event
 permalink: "/events/{{ event.data.date | date('y-LL-dd') }}:{{ event.data.title | slugify }}/"
 eleventyComputed:
-  title: "{{ event.data.title }}"
+  title: "{{ event.data.title | safe }}"
   venue: "{{ event.data.venue }}"
   location: "{{ event.data.location }}"
   tags:
@@ -16,7 +16,7 @@ eleventyComputed:
 <div class="bg-base-200 mb-8 p-8 border-secondary border-t-4">
     <div class="sm:container sm:max-w-prose mx-auto space-y-3">
             <h1 class="font-bold mb-4 text-3xl sm:text-5xl">
-                <span>{{ title }}</span>
+                <span>{{ title | safe }}</span>
             </h1>
 
             {% if (collections.venues | where(venue)).length %}
@@ -29,7 +29,7 @@ eleventyComputed:
 
             <ul class="list-disc list-outside pl-4">
                 {% for artist in event.data.artists %}
-                    <li>{{ artist }}</li>
+                    <li>{{ artist | safe }}</li>
                 {% endfor %}
             </ul>
 

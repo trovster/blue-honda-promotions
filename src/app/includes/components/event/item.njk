@@ -2,7 +2,7 @@
     <div class="card indicator max-sm:rounded-none bg-neutral text-neutral-content flex w-auto max-w-screen-sm md:shadow-2xl mx-auto not-prose">
         <div class="card-body">
             <h1 class="card-title flex justify-between">
-                <span>{{ event.data.title }}</span>
+                <span>{{ event.data.title | safe }}</span>
             </h1>
 
             {% if (collections.venues | where(event.data.venue)).length %}
@@ -15,7 +15,7 @@
 
             <ul class="list-disc list-outside pl-4">
                 {% for artist in event.data.artists %}
-                    <li>{{ artist }}</li>
+                    <li>{{ artist | safe }}</li>
                 {% endfor %}
             </ul>
 
