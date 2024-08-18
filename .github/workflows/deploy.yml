@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  URL: 'https://trovster.github.io/blue-honda-promotions/'
+  URL: "https://trovster.github.io/blue-honda-promotions/"
 
 jobs:
   build-and-deploy:
@@ -34,7 +34,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: ".nvmrc"
 
       - name: Create .env file
         env:
@@ -54,7 +54,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist'
+          path: "dist"
 
       - name: Deploy to GitHub Pages
         id: deployment

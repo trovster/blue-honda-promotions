@@ -1,31 +1,31 @@
 {
-  "semi": false,
-  "printWidth": 1000,
-  "tabWidth": 4,
-  "overrides": [
-    {
-      "files": "*.json",
-      "options": {
-        "tabWidth": 2
-      }
-    },
-    {
-      "files": "*.njk",
-      "options": {
-        "parser": "jinja-template"
-      }
-    },
-    {
-      "files": "*.toml",
-      "options": {
-        "tabWidth": 2
-      }
-    },
-    {
-      "files": "*.yml",
-      "options": {
-        "tabWidth": 2
-      }
-    }
-  ]
+    "semi": false,
+    "printWidth": 1000,
+    "tabWidth": 4,
+    "overrides": [
+        {
+            "files": "*.json",
+            "options": {
+                "tabWidth": 2
+            }
+        },
+        {
+            "files": "*.njk",
+            "options": {
+                "parser": "jinja-template"
+            }
+        },
+        {
+            "files": "*.toml",
+            "options": {
+                "tabWidth": 2
+            }
+        },
+        {
+            "files": "*.yml",
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
 }

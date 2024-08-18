@@ -34,7 +34,7 @@
     "prebuild": "npm run clean",
     "build": "npm run 11ty",
     "postbuild": "npm run css -- --minify",
-    "prettier": "npx prettier --write src"
+    "prettier": "npx prettier --write ."
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0-beta.1",
