@@ -2,7 +2,7 @@ import api from "../../api/index.js"
 import slugify from "slugify"
 
 export default async () => {
-    const result = await api("/music/events")
+    const result = await api("/music/events?per_page=20")
 
     return result.data
         .map((event) => {

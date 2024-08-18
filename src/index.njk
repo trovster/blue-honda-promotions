@@ -26,5 +26,5 @@ title: Welcome
 
 <div class="container mx-auto my-8">
     {%- from 'component.njk' import component with context -%}
-    {{ component('event/timeline', collections.events | past | reverse | limit(4)) }}
+    {{ component('event/timeline', collections.events | past | reverse | limit(20)) }}
 </div>
