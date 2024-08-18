@@ -20,7 +20,7 @@ eleventyComputed:
                 <span>{{ title }}</span>
             </h1>
 
-            {% if (collections.venues | pluck(venue)).length %}
+            {% if (collections.venues | where(venue)).length %}
             <p><strong>Location</strong>: <a href="/venues/{{ venue | slugify }}/" class="link">{{ venue }}</a>, {{ location }}</p>
             {% else %}
             <p><strong>Location</strong>: {{ venue }}, {{ location }}</p>
@@ -39,20 +39,20 @@ eleventyComputed:
     </div>
 </div>
 
-{% if (collections[location] | upcoming | exclude(page.url)).length > 0 %}
+{% if (collections.events | where(location, "data.location") | upcoming | exclude(page.url)).length > 0 %}
 <div class="divider divider-accent">Upcoming Events in {{ location }}…</div>
 
 <div class="container mx-auto my-8">
     {%- from 'component.njk' import component with context -%}
-    {{ component('event/timeline', collections[location] | upcoming | exclude(page.url)) }}
+    {{ component('event/timeline', collections.events | where(location, "data.location") | upcoming | exclude(page.url)) }}
 </div>
 {% endif %}
 
-{% if (collections[location] | past | exclude(page.url)).length > 0 %}
+{% if (collections.events | where(location, "data.location") | past | exclude(page.url)).length > 0 %}
 <div class="divider divider-accent">Previous Events in {{ location }}…</div>
 
 <div class="container mx-auto my-8">
     {%- from 'component.njk' import component with context -%}
-    {{ component('event/timeline', collections[location] | past | exclude(page.url) | reverse) }}
+    {{ component('event/timeline', collections.events | where(location, "data.location") | past | exclude(page.url) | reverse) }}
 </div>
 {% endif %}

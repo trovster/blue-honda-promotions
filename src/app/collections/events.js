@@ -13,7 +13,7 @@ export default async () => {
                     tags: [event.venue, event.location],
                 },
                 page: {
-                    url: `/events/${date(event.date, 'y-LL-dd') }:${slugify(event.title, {
+                    url: `/events/${date(event.date, "y-LL-dd")}:${slugify(event.title, {
                         remove: /[\.]+/,
                         decamelize: false,
                         lower: true,

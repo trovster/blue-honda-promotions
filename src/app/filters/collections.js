@@ -42,14 +42,14 @@ const exclude = (arr, url) => {
 }
 
 /**
- * Pluck an item from a collection, based on attribute.
+ * Find items from a collection, based on attribute.
  *
  * @param {Array} arr - items to filter
  * @param {String} value - value to compare.
  * @param {String} attr - item attribute to compare against.
  * @returns {Array} filtered items
  */
-const pluck = (arr, value, attr = "data.title") => {
+const where = (arr, value, attr = "data.title") => {
     return (arr ?? []).filter((item) => _.get(item, attr) === value)
 }
 
@@ -61,4 +61,4 @@ const pluck = (arr, value, attr = "data.title") => {
  */
 const next = (arr) => limit(upcoming(arr), 1).pop()
 
-export { limit, upcoming, past, exclude, pluck, next }
+export { limit, upcoming, past, exclude, where, next }

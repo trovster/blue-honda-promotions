@@ -23,20 +23,20 @@ eleventyComputed:
     {% endif %}
 </div>
 
-{% if (collections[title] | upcoming).length > 0 %}
+{% if (collections.events | where(title, "data.venue") | upcoming).length > 0 %}
 <div class="divider divider-accent">Upcoming Events…</div>
 
 <div class="container mx-auto my-8">
     {%- from 'component.njk' import component with context -%}
-    {{ component('event/timeline', collections[title] | upcoming) }}
+    {{ component('event/timeline', collections.events | where(title, "data.venue") | upcoming) }}
 </div>
 {% endif %}
 
-{% if (collections[title] | past).length > 0 %}
+{% if (collections.events | where(title, "data.venue") | past).length > 0 %}
 <div class="divider divider-accent">Previous Events…</div>
 
 <div class="container mx-auto my-8">
     {%- from 'component.njk' import component with context -%}
-    {{ component('event/timeline', collections[title] | past | reverse) }}
+    {{ component('event/timeline', collections.events | where(title, "data.venue") | past | reverse) }}
 </div>
 {% endif %}
