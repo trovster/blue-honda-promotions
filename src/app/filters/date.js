@@ -19,5 +19,5 @@ function ordinal(n) {
  */
 export default (date, format, locale = "en") => {
     date = DateTime.fromISO(date).setLocale(locale)
-    return date.toFormat(format.replace('ddS', ordinal(date.day)))
+    return date.toFormat(format.replace("ddS", ordinal(date.day)))
 }

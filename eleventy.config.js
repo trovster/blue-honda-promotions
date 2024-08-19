@@ -1,15 +1,16 @@
 import "dotenv/config"
-import { EleventyHtmlBasePlugin } from "@11ty/eleventy"
 import collections from "./src/app/collections/index.js"
+import shortcodes from "./src/app/shortcodes/index.js"
 import filters from "./src/app/filters/index.js"
 import plugins from "./src/app/plugins/index.js"
+import functions from "./src/app/functions/index.js"
 
 export default (config) => {
-    // plugins…
-    config.addPlugin(EleventyHtmlBasePlugin)
-
     // shortcodes…
-    config.addShortcode("year", () => new Date().getFullYear())
+    Object.entries(shortcodes).forEach((item) => {
+        const [key, shortcode] = item
+        config.addShortcode(key, shortcode)
+    })
 
     // filters…
     Object.entries(filters).forEach((item) => {
@@ -27,6 +28,12 @@ export default (config) => {
     Object.entries(plugins).forEach((item) => {
         const [key, plugin] = item
         config.addPlugin(plugin)
+    })
+
+    // functions…
+    Object.entries(functions).forEach((item) => {
+        const [key, functionName] = item
+        config.addNunjucksGlobal(key, functionName)
     })
 
     config.addWatchTarget("./src/css")

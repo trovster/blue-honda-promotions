@@ -13,28 +13,31 @@ eleventyComputed:
     - "{{ event.data.venue }}"
     - "{{ event.data.location }}"
 ---
-<div class="bg-base-200 mb-8 p-8 border-secondary border-t-4">
+<div class="bg-base-200 p-8 border-secondary border-t-4">
     <div class="sm:container sm:max-w-prose mx-auto space-y-3">
-            <h1 class="font-bold mb-4 text-3xl sm:text-5xl">
-                <span>{{ title | safe }}</span>
-            </h1>
+        <h1 class="font-bold mb-4 text-3xl sm:text-5xl">
+            <span>{{ title | safe }}</span>
+        </h1>
 
-            {% if (collections.venues | where(venue)).length %}
-            <p><strong>Location</strong>: <a href="/venues/{{ venue | slugify }}/" class="link">{{ venue }}</a>, {{ location }}</p>
-            {% else %}
-            <p><strong>Location</strong>: {{ venue }}, {{ location }}</p>
-            {% endif %}
+        {% if (collections.venues | where(venue)).length %}
+        <p><strong>Location</strong>: <a href="/venues/{{ venue | slugify }}/" class="link">{{ venue }}</a>, {{ location }}</p>
+        {% else %}
+        <p><strong>Location</strong>: {{ venue }}, {{ location }}</p>
+        {% endif %}
 
-            <p><strong>Date</strong>: {{ event.data.date | date('cccc, ddS LLLL y') }}</p>
+        <p><strong>Date</strong>: {{ event.data.date | date('cccc, ddS LLLL y') }}</p>
+    </div>
+</div>
 
-            <ul class="list-disc list-outside pl-4">
-                {% for artist in event.data.artists %}
-                    <li>{{ artist | safe }}</li>
-                {% endfor %}
-            </ul>
-
-            {{ content | safe }}
-        </div>
+<div class="bg-accent p-8 mb-12">
+    <div class="sm:container sm:max-w-prose mx-auto space-y-3">
+        <h3 class="text-xl font-bold">{{ 'Whose Playing?' if isFuture(event.data.date) else "Who Played?" }}</h3>
+        <ul class="list-disc list-outside pl-4">
+            {% for artist in event.data.artists %}
+                <li>{{ artist | safe }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
 
 {% if (collections.events | where(location, "data.location") | upcoming | exclude(page.url)).length > 0 %}
