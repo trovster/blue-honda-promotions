@@ -13,11 +13,7 @@
 
             <p><strong>Date</strong>: {{ event.data.date | date('cccc dd LLLL y') }}</p>
 
-            <ul class="list-disc list-outside pl-4">
-                {% for artist in event.data.artists %}
-                    <li>{{ artist | safe }}</li>
-                {% endfor %}
-            </ul>
+            <p><strong>Artists</strong>: {{ event.data.artists | join(', ') }}</p>
 
             <div class="card-actions mt-2">
                 <a href="{{ event.page.url }}" class="btn btn-sm btn-accent">View Event</a>
