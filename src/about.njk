@@ -12,5 +12,5 @@ title: About
 
 <div class="sm:container mx-auto mt-10 mb-0 sm:mt-16 sm:mb-8">
     {%- from 'component.njk' import component with context -%}
-    {{ component('event/item', collections.events | next) }}
+    {{ component('event/card', collections.events | next) }}
 </div>
