@@ -1,0 +1,16 @@
+---
+title: Past Events
+---
+<div class="container my-8 mx-auto prose md:prose-xl">
+    <h2 class="mb-2 md:mb-4">{{ title }}</h2>
+    <p class="prose-lead">
+        We work hard to bring all the best artists to the area. See who have
+        played in the region that you might’ve missed… and make sure you see
+        who is <a href="/upcoming" class="link">playing soon</a>.
+    </p>
+</div>
+
+<div class="container mx-auto my-8">
+    {%- from 'component.njk' import component with context -%}
+    {{ component('event/timeline', collections.events | past | reverse) }}
+</div>
