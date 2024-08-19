@@ -15,9 +15,10 @@
     </div>
 
     <ul tabindex="0" class="menu menu-sm dropdown-content bg-neutral text-neutral-content -left-2 z-1 mt-3 p-2 px-4 w-screen">
-        <li><a href="/about/">About</a></li>
-        <li><a href="/upcoming/">Upcoming Events</a></li>
-        <li><a href="/venues/">Venues</a></li>
-        <li><a href="/locations/">Locations</a></li>
+        {% for item in collections.all | eleventyNavigation %}
+            <li>
+                <a href="{{ item.url }}">{{ item.title }}</a>
+            </li>
+        {% endfor %}
     </ul>
 </div>
