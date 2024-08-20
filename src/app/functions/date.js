@@ -20,4 +20,4 @@ const isFuture = (date) => {
     return DateTime.fromISO(date) >= DateTime.now()
 }
 
-export { isPast, isFuture }
+export default { isPast, isFuture }

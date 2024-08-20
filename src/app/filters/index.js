@@ -1,15 +1,9 @@
+import collections from "./collections.js"
 import date from "./date.js"
-import { limit, upcoming, past, exclude, where, first, next } from "./collections.js"
 import { shorten as shortenUrl } from "./url.js"
 
 export default {
+    ...collections,
     date,
-    limit,
-    upcoming,
-    past,
-    exclude,
-    where,
-    first,
-    next,
     shortenUrl,
 }

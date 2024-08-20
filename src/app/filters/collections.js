@@ -69,4 +69,4 @@ const first = (arr) => limit(arr, 1).pop()
  */
 const next = (arr) => first(upcoming(arr))
 
-export { limit, upcoming, past, exclude, where, first, next }
+export default { limit, upcoming, past, exclude, where, first, next }

@@ -1,6 +1,5 @@
-import { isPast, isFuture } from "./date.js"
+import dates from "./date.js"
 
 export default {
-    isPast,
-    isFuture,
+    ...dates,
 }
