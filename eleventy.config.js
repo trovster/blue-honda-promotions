@@ -36,16 +36,18 @@ export default (config) => {
         config.addNunjucksGlobal(key, functionName)
     })
 
-    config.addWatchTarget("./src/css")
-    config.addWatchTarget("./src/js")
-    config.addPassthroughCopy({
-        "node_modules/theme-change/index.js": "js/theme-change.js",
-        "src/js/site.js": "js/site.js",
-    })
     config.setDataDeepMerge(true)
-    config.setServerPassthroughCopyBehavior("passthrough")
     config.setQuietMode(true)
     config.setDataFileBaseName("index")
+
+    config.addWatchTarget("./public/css")
+    config.addWatchTarget("./public/js")
+    config.setServerPassthroughCopyBehavior("passthrough")
+    config.addPassthroughCopy({
+        "public/fonts/": "/assets/fonts/",
+        "public/js/": "/assets/js/",
+        "node_modules/theme-change/index.js": "/assets/js/theme-change.js",
+    });
 
     return {
         dir: {

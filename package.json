@@ -28,7 +28,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "11ty": "npx @11ty/eleventy $npm_config_pathprefix",
-    "css": "npx postcss ./src/css/site.scss -o ./dist/css/site.css",
+    "css": "npx postcss ./public/css/site.css -o ./dist/assets/css/site.css",
     "prestart": "npm run clean",
     "start": "npm run 11ty -- --serve --quiet & npm run css -- --watch",
     "prebuild": "npm run clean",
