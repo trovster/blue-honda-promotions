@@ -8,12 +8,19 @@
     font-weight: 400;
     font-display: block;
     font-style: normal;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F,
-      U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "DownwardFall";
+    src: url("/assets/fonts/DownwardFall.woff2") format("woff2");
+}
 
 .logo {
+    --x: 6px;
+    --y: 6px;
     --angle: -7deg;
+    --font: "Tanker Regular", system-ui, sans-serif;
 
     display: table;
     inline-size: 1rem;
@@ -23,11 +30,22 @@
     padding: 2rem 0 0;
 
     color: oklch(var(--s));
-    font-family: "Tanker Regular", system-ui, sans-serif;
+    font-family: var(--font);
     font-size: clamp(2.4881rem, 1.7066rem + 3.9076vw, 4.735rem);
     line-height: 0.85;
     letter-spacing: -0.1rem;
     font-weight: 900;
     text-align: left;
-    transform: rotate(var(--angle)) skew(var(--angle));
-}
+    transform: rotate(var(--angle)) skew(var(--angle)) translate(0px, 0px);
+    transition: text-shadow 50ms ease-in-out;
+
+    [data-theme="cyberpunk"] & {
+        --font: DownwardFall, system-ui, sans-serif;
+    }
+
+    &:hover {
+        text-shadow:
+            calc(var(--x) * 1) calc(var(--y) * 1) 0 oklch(var(--p)),
+            calc(var(--x) * 2) calc(var(--y) * 2) 0 oklch(var(--a));
+    }
+  }
