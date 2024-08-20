@@ -1,9 +1,9 @@
 import collections from "./collections.js"
-import date from "./date.js"
-import { shorten as shortenUrl } from "./url.js"
+import dates from "./dates.js"
+import urls from "./urls.js"
 
 export default {
     ...collections,
-    date,
-    shortenUrl,
+    ...dates,
+    ...urls,
 }

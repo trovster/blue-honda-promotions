@@ -19,7 +19,7 @@ eleventyComputed:
     {{ description | safe }}
 
     {% if venue.data.url %}
-    <p><a href="{{ venue.data.url }}" class="link">{{ venue.data.url | shortenUrl }}</a></p>
+    <p><a href="{{ venue.data.url }}" class="link">{{ venue.data.url | shorten }}</a></p>
     {% endif %}
 </div>
 

@@ -1,4 +1,4 @@
-import dates from "./date.js"
+import dates from "./dates.js"
 
 export default {
     ...dates,
