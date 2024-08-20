@@ -5,12 +5,12 @@ import { DateTime } from "luxon"
 function ordinal(n) {
     var s = ["th", "st", "nd", "rd"]
     var v = n % 100
-    return "'" + n + (s[(v - 20) % 10] || s[v] || s[0]) + "'"
+    return " '" + n + (s[(v - 20) % 10] || s[v] || s[0]) + "' "
 }
 
 /**
  * Format a date with Luxon.
- * If you provide ddS in the format, it assumes you want the ordinal suffix.
+ * If you provide dS in the format, it assumes you want the ordinal suffix.
  *
  * @param {String} date - string Date
  * @param {String} format - date format (Luxon)
@@ -19,5 +19,5 @@ function ordinal(n) {
  */
 export default (date, format, locale = "en") => {
     date = DateTime.fromISO(date).setLocale(locale)
-    return date.toFormat(format.replace("ddS", ordinal(date.day)))
+    return date.toFormat(format.replace(" dS ", ordinal(date.day)))
 }
