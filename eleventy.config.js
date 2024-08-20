@@ -1,40 +1,17 @@
 import "dotenv/config"
-import collections from "./src/collections/index.js"
-import shortcodes from "./11ty/shortcodes/index.js"
+
+import collections from "./11ty/collections/index.js"
 import filters from "./11ty/filters/index.js"
-import plugins from "./11ty/plugins/index.js"
 import functions from "./11ty/functions/index.js"
+import plugins from "./11ty/plugins/index.js"
+import shortcodes from "./11ty/shortcodes/index.js"
 
 export default (config) => {
-    // shortcodes…
-    Object.entries(shortcodes).forEach((item) => {
-        const [key, shortcode] = item
-        config.addShortcode(key, shortcode)
-    })
-
-    // filters…
-    Object.entries(filters).forEach((item) => {
-        const [key, filter] = item
-        config.addFilter(key, filter)
-    })
-
-    // collections…
-    Object.entries(collections).forEach((item) => {
-        const [key, collection] = item
-        config.addCollection(key, (collectionsApi) => collection(collectionsApi, config))
-    })
-
-    // plugins…
-    Object.entries(plugins).forEach((item) => {
-        const [key, plugin] = item
-        config.addPlugin(plugin)
-    })
-
-    // functions…
-    Object.entries(functions).forEach((item) => {
-        const [key, functionName] = item
-        config.addNunjucksGlobal(key, functionName)
-    })
+    config.addPlugin(collections)
+    config.addPlugin(filters)
+    config.addPlugin(functions)
+    config.addPlugin(plugins)
+    config.addPlugin(shortcodes)
 
     config.setDataDeepMerge(true)
     config.setQuietMode(true)
@@ -55,7 +32,6 @@ export default (config) => {
             input: "src",
             output: "dist",
             data: "data",
-            collections: "collections",
             layouts: "layouts",
             includes: "includes",
         },
