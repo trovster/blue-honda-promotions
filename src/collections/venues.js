@@ -1,4 +1,4 @@
-import api from "../../api/index.js"
+import api from "../../11ty/api/index.js"
 
 export default async (collection, config) => {
     const result = await api("/music/events/locations")
