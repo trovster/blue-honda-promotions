@@ -18,14 +18,14 @@ export default (config) => {
     config.setDataFileBaseName("index")
     config.setServerPassthroughCopyBehavior("passthrough")
 
-    config.addLayoutAlias("default", "layouts/default.njk");
+    config.addLayoutAlias("default", "layouts/default.njk")
     config.addWatchTarget("./public/css")
     config.addWatchTarget("./public/js")
     config.addPassthroughCopy({
         "public/fonts/": "/assets/fonts/",
         "public/js/": "/assets/js/",
         "node_modules/theme-change/index.js": "/assets/js/theme-change.js",
-    });
+    })
 
     return {
         dir: {
