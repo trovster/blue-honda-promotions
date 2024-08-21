@@ -7,8 +7,7 @@ const plugins = {
 }
 
 export default (config) => {
-    Object.entries(plugins).forEach((item) => {
-        const [key, plugin] = item
+    for (const [name, plugin] of Object.entries(plugins)) {
         config.addPlugin(plugin)
-    })
+    }
 }

@@ -9,8 +9,7 @@ const filters = {
 }
 
 export default (config) => {
-    Object.entries(filters).forEach((item) => {
-        const [key, filter] = item
-        config.addFilter(key, filter)
-    })
+    for (const [name, filter] of Object.entries(filters)) {
+        config.addFilter(name, filter)
+    }
 }

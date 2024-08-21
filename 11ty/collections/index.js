@@ -13,8 +13,7 @@ const collections = {
 }
 
 export default (config) => {
-    Object.entries(collections).forEach((item) => {
-        const [key, collection] = item
-        config.addCollection(key, (collectionsApi) => collection(collectionsApi, config))
-    })
+    for (const [name, collection] of Object.entries(collections)) {
+        config.addCollection(name, (api) => collection(api, config));
+    }
 }
