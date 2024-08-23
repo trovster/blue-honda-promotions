@@ -3,7 +3,7 @@ pagination:
   data: collections.venues
   size: 1
   alias: venue
-permalink: "/venues/{{ venue.data.title | slugify }}/"
+permalink: "{{ venue.page.url }}"
 eleventyComputed:
   title: "{{ venue.data.title }}"
   location: "{{ venue.data.city }}"
