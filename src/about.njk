@@ -1,8 +1,10 @@
 ---
 title: About
-eleventyNavigation:
-  key: About
-  order: 1
+order: 10
+eleventyComputed:
+  eleventyNavigation:
+    key: "{{ title }}"
+    order: "{{ order }}"
 ---
 <div class="container">
     <h1 class="logo">Blue Honda Promo</h1>

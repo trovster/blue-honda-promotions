@@ -1,8 +1,10 @@
 ---
 title: Upcoming Events
-eleventyNavigation:
-  key: Upcoming Events
-  order: 2
+order: 20
+eleventyComputed:
+  eleventyNavigation:
+    key: "{{ title }}"
+    order: "{{ order }}"
 ---
 <div class="container my-8 mx-auto prose md:prose-xl">
     <h2 class="mb-2 md:mb-4">{{ title }}</h2>
