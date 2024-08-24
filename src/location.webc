@@ -1,6 +1,6 @@
 ---
 pagination:
-  data: collections.locationNames
+  data: collections.locations
   size: 1
   alias: location
 ---

@@ -1,17 +1,27 @@
 export default async (collection, config) => {
-    const items = await config.collections.events()
+    const events = await config.collections.events()
+    const slugify = config.getFilter("slugify")
+    const items = new Set()
+    const locations = new Set()
 
-    items
+    events
         .filter((item) => "location" in item.data)
         .forEach((item) => {
-            if (!item.data.location) return
+            if (!item.data.location || locations[item.data.location]) return
 
             if (!items[item.data.location]) {
-                items[item.data.location] = new Set()
+                locations[item.data.location] = new Set()
             }
 
-            items[item.data.location].add(item)
+            items.add({
+                data: {
+                    title: item.data.location,
+                },
+                page: {
+                    url: `/locations/${slugify(item.data.location)}/`,
+                },
+            })
         })
 
-    return items
+    return [...items].sort((a, b) => a.data.title.localeCompare(b.data.title))
 }

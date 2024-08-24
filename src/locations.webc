@@ -6,7 +6,7 @@ eleventyNavigation:
   order: 50
 ---
 <script webc:setup>
-    const locations = $data.collections.locationNames
+    const locations = $data.collections.locations
 </script>
 
 <div class="container my-8 mx-auto prose md:prose-xl">
