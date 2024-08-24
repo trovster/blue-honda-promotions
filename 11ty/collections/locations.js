@@ -16,6 +16,7 @@ export default async (collection, config) => {
             items.add({
                 data: {
                     title: item.data.location,
+                    description: collection.getFilteredByTag(item.data.location).pop()?.page?.rawInput,
                 },
                 page: {
                     url: `/locations/${slugify(item.data.location)}/`,

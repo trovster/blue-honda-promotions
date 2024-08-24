@@ -9,12 +9,13 @@ pagination:
   const pastEvents = (location) => past(where($data.collections.events, location, 'data.location')).reverse()
   const hasUpcoming = (location) => upcomingEvents(location).length > 0
   const hasPast = (location) => pastEvents(location).length > 0
-  const description = (location) => first($data.collections[location])?.content
 </script>
 
 <div class="container my-8 mx-auto prose md:prose-xl">
     <h2 class="mb-2 md:mb-4 text-center" @text="location.data.title"></h2>
-    <template @html="description(location.data.title)" webc:nokeep></template>
+    <template webc:type="11ty" 11ty:type="liquid,md" webc:nokeep>
+      {{ location.data.description }}
+    </template>
 </div>
 
 <div webc:if="hasUpcoming(location.data.title)">
