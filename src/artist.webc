@@ -1,0 +1,32 @@
+---
+pagination:
+  data: collections.artists
+  size: 1
+  alias: artist
+---
+<script webc:setup>
+    const upcomingEvents = (artist) => upcoming(where($data.collections.events, artist, 'data.artists'))
+    const pastEvents = (artist) => past(where($data.collections.events, artist, 'data.artists')).reverse()
+    const hasUpcoming = (artist) => upcomingEvents(artist).length > 0
+    const hasPast = (artist) => pastEvents(artist).length > 0
+</script>
+
+<div class="container my-8 mx-auto prose md:prose-xl">
+    <h2 class="mb-2 md:mb-4 text-center" @text="artist.data.title"</h2>
+</div>
+
+<div webc:if="hasUpcoming(artist.data.title)">
+  <div class="divider divider-accent">Upcoming Events…</div>
+
+  <div class="container mx-auto my-8">
+      <event-timeline :@events="upcomingEvents(artist.data.title)"></event-timeline>
+  </div>
+</div>
+
+<div webc:if="hasPast(artist.data.title)">
+  <div class="divider divider-accent">Previous Events…</div>
+
+  <div class="container mx-auto my-8">
+      <event-timeline :@events="pastEvents(artist.data.title)"></event-timeline>
+  </div>
+</div>

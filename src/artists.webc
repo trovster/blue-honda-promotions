@@ -1,0 +1,19 @@
+---
+title: Artists
+eleventyNavigation:
+  key: Artists
+  order: 39
+---
+<script webc:setup>
+    const artists = $data.collections.artists
+</script>
+
+<div class="container my-8 mx-auto prose md:prose-xl">
+    <h2 class="mb-2 md:mb-4" @text="title"></h2>
+
+    <ul class="list-disc pl-4 not-prose">
+        <li webc:for="(key, artist) in artists">
+            <a :href="artist.page.url" class="link" @text="artist.data.title"></a>
+        </li>
+    </ul>
+</div>

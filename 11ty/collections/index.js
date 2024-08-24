@@ -1,12 +1,12 @@
 import events from "./events.js"
 import venues from "./venues.js"
-import bands from "./bands.js"
+import artists from "./artists.js"
 import locations from "./locations.js"
 
 const collections = {
     events,
     venues,
-    bands,
+    artists,
     locations,
 }
 

@@ -44,7 +44,7 @@ const collections = {
      * @param {String} attr - item attribute to compare against.
      * @returns {Array} filtered items
      */
-    where: (arr, value, attr = "data.title") => (arr ?? []).filter((item) => _.get(item, attr) === value),
+    where: (arr, value, attr = "data.title") => (arr ?? []).filter((item) => _.get(item, attr).includes(value)),
 
     /**
      * Find the first item.
