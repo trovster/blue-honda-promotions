@@ -1,12 +1,12 @@
-import year from "./year.js"
+import fs from "node:fs/promises"
 
-const shortcodes = {
-    year,
-}
+export default async (config) => {
+    const files = await fs.readdir(import.meta.dirname)
 
-export default (config) => {
-    Object.entries(shortcodes).forEach((item) => {
-        const [key, shortcode] = item
-        config.addShortcode(key, shortcode)
-    })
+    for (const file of files.filter((file) => file !== 'index.js')) {
+        const shortcodes = await import(import.meta.dirname + '/' + file)
+        const name = file.replace(/\.[^/.]+$/, "")
+
+        config.addShortcode(name, shortcodes.default)
+    }
 }

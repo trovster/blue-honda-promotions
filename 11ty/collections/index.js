@@ -1,17 +1,12 @@
-import events from "./events.js"
-import venues from "./venues.js"
-import artists from "./artists.js"
-import locations from "./locations.js"
+import fs from "node:fs/promises"
 
-const collections = {
-    events,
-    venues,
-    artists,
-    locations,
-}
+export default async (config) => {
+    const files = await fs.readdir(import.meta.dirname)
 
-export default (config) => {
-    for (const [name, collection] of Object.entries(collections)) {
-        config.addCollection(name, (api) => collection(api, config));
+    for (const file of files.filter((file) => file !== 'index.js')) {
+        const collections = await import(import.meta.dirname + '/' + file)
+        const name = file.replace(/\.[^/.]+$/, "")
+
+        config.addCollection(name, (api) => collections.default(api, config))
     }
 }
