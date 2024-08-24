@@ -1,0 +1,15 @@
+<div class="card indicator max-sm:rounded-none bg-neutral text-neutral-content flex w-auto max-w-screen-sm md:shadow-2xl mx-auto not-prose">
+    <div class="card-body">
+        <h1 class="card-title flex justify-between" @text="event.data.title"></h1>
+
+        <event-meta :@event="event"></event-meta>
+
+        <p><strong>Artists</strong>: <span webc:nokeep @text="event.data.artists.join(', ')"></span></p>
+
+        <div class="card-actions mt-2">
+            <a :href="event.page.url" class="btn btn-sm btn-accent">View Event</a>
+        </div>
+    </div>
+
+    <span class="indicator-item indicator-top indicator-center badge p-4 rounded-btn font-bold badge-secondary" webc:if="isNext">Next Event</span>
+</div>

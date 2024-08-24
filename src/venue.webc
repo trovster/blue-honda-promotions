@@ -1,0 +1,36 @@
+---
+pagination:
+  data: collections.venues
+  size: 1
+  alias: venue
+---
+<script webc:setup>
+    const upcomingEvents = (venue) => upcoming(where($data.collections.events, venue, 'data.venue'))
+    const pastEvents = (venue) => past(where($data.collections.events, venue, 'data.venue')).reverse()
+    const hasUpcoming = (venue) => upcomingEvents(venue).length > 0
+    const hasPast = (venue) => pastEvents(venue).length > 0
+</script>
+
+<div class="container my-8 mx-auto prose md:prose-xl">
+    <h2 class="mb-2 md:mb-4"><span @text="venue.data.title" webc:nokeep></span>, <span @text="venue.data.city"></span></h2>
+
+    <template @text="venue.data.description" webc:nokeep></template>
+
+    <p webc:if="venue.data.url"><a :href="venue.data.url" class="link" @text="shorten(venue.data.url)"></a></p>
+</div>
+
+<div webc:if="hasUpcoming(venue.data.title)">
+    <div class="divider divider-accent">Upcoming Events…</div>
+
+    <div class="container mx-auto my-8">
+        <event-timeline :@events="upcomingEvents(venue.data.title)"></event-timeline>
+    </div>
+</div>
+
+<div webc:if="hasPast(venue.data.title)">
+    <div class="divider divider-accent">Previous Events…</div>
+
+    <div class="container mx-auto my-8">
+        <event-timeline :@events="pastEvents(venue.data.title)"></event-timeline>
+    </div>
+</div>

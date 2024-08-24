@@ -1,0 +1,21 @@
+<script webc:setup>
+  const themeValue = (theme) => slugify(theme)
+</script>
+
+<div class="dropdown dropdown-left dropdown-end mr-0 ml-auto">
+    <div tabindex="0" role="button" class="btn m-1">
+        Theme
+    </div>
+
+      <ul tabindex="0" class="dropdown-content menu bg-base-300 rounded-box z-[1] w-52 p-2 shadow-2xl">
+          <li webc:for="theme of $data.themes">
+              <input
+                type="radio"
+                name="theme-dropdown"
+                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                :aria-label="theme"
+                :value="themeValue(theme)"
+                :data-set-theme="themeValue(theme)" />
+          </li>
+      </ul>
+</div>

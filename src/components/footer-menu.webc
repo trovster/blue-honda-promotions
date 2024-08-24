@@ -1,0 +1,9 @@
+<h3 class="footer-title" @text="title"></h3>
+
+<nav>
+    <ul class="menu menu-xs p-0 -mx-2">
+        <li webc:for="(key, item) in items">
+            <a :href="item.page.url" class="max-md:px-2" @text="item.data.title"></a>
+        </li>
+    </ul>
+</nav>

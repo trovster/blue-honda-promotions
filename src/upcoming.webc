@@ -1,13 +1,15 @@
 ---
 title: Upcoming Events
-order: 20
-eleventyComputed:
-  eleventyNavigation:
-    key: "{{ title }}"
-    order: "{{ order }}"
+eleventyNavigation:
+  key: Upcoming Events
+  order: 20
 ---
+<script webc:setup>
+    const events = upcoming($data.collections.events)
+</script>
+
 <div class="container my-8 mx-auto prose md:prose-xl">
-    <h2 class="mb-2 md:mb-4">{{ title }}</h2>
+    <h2 class="mb-2 md:mb-4" @text="title"></h2>
     <p class="prose-lead">
         We work with a variety of venues, in multiple locations around the area,
         so you can always find something to enjoy. Here are all the upcoming events…
@@ -15,6 +17,5 @@ eleventyComputed:
 </div>
 
 <div class="container mx-auto my-8">
-    {%- from 'component.njk' import component with context -%}
-    {{ component('event/timeline', collections.events | upcoming) }}
+    <event-timeline :@events="events"></event-timeline>
 </div>

@@ -1,0 +1,12 @@
+<script webc:setup>
+  const hasVenue = (venue) => where($data.collections.venues, venue).length > 0
+</script>
+
+<p webc:if="hasVenue(event.data.venue)">
+    <strong>Location</strong>: <a :href="`/venues/${slugify(event.data.venue)}/`" class="link" @text="event.data.venue"></a>, <span webc:nokeep @text="event.data.location"></span>
+</p>
+<p webc:else>
+    <strong>Location</strong>: <span webc:nokeep @text="event.data.venue"></span>, <span webc:nokeep @text="event.data.location"></span>
+</p>
+
+<p><strong>Date</strong>: <span webc:nokeep @text="date(event.data.date, 'cccc, dS LLLL y')"></span></p>

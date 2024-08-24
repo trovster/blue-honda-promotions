@@ -7,7 +7,7 @@ permalink: 404.html
 </div>
 
 <div class="container my-12 mx-auto prose md:prose-xl text-center max-w-md">
-    <h2 class="mb-2 md:mb-4">{{ title }}</h2>
+    <h2 class="mb-2 md:mb-4" @text="title"></h2>
     <p class="prose-lead">
         Sorry, the page you are looking for could not be found.
         Please try the <a href="/">homepage</a>.

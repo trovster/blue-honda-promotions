@@ -1,14 +1,10 @@
-export default (collection, config) => {
+export default async (collection, config) => {
     const slugify = config.getFilter("slugify")
     const items = new Set()
     const locations = new Set()
+    const events = await config.collections.events()
 
-    collection
-        .getAll()
-        .map((item) => {
-            return item.data.collections.events
-        })
-        .pop()
+    events
         .filter((item) => "location" in item.data)
         .forEach((item) => {
             if (!item.data.location || locations[item.data.location]) return

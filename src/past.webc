@@ -1,13 +1,15 @@
 ---
 title: Past Events
-order: 30
-eleventyComputed:
-  eleventyNavigation:
-    key: "{{ title }}"
-    order: "{{ order }}"
+eleventyNavigation:
+  key: Past Events
+  order: 30
 ---
+<script webc:setup>
+    const events = past($data.collections.events).reverse()
+</script>
+
 <div class="container my-8 mx-auto prose md:prose-xl">
-    <h2 class="mb-2 md:mb-4">{{ title }}</h2>
+    <h2 class="mb-2 md:mb-4" @text="title"></h2>
     <p class="prose-lead">
         We work hard to bring all the best artists to the area. See who have
         played in the region that you might’ve missed… and make sure you see
@@ -16,6 +18,5 @@ eleventyComputed:
 </div>
 
 <div class="container mx-auto my-8">
-    {%- from 'component.njk' import component with context -%}
-    {{ component('event/timeline', collections.events | past | reverse) }}
+    <event-timeline :@events="events"></event-timeline>
 </div>

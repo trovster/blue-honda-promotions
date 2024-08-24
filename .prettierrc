@@ -10,9 +10,9 @@
             }
         },
         {
-            "files": "*.njk",
+            "files": "*.webc",
             "options": {
-                "parser": "jinja-template"
+                "tabWidth": 4
             }
         },
         {

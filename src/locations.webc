@@ -1,0 +1,20 @@
+---
+title: Locations
+order: 50
+eleventyNavigation:
+  key: Locations
+  order: 50
+---
+<script webc:setup>
+    const locations = $data.collections.locationNames
+</script>
+
+<div class="container my-8 mx-auto prose md:prose-xl">
+    <h2 class="mb-2 md:mb-4" @text="title"></h2>
+
+    <ul class="list-disc pl-4 not-prose">
+        <li webc:for="(key, location) in locations">
+            <a :href="location.page.url" class="link" @text="location.data.title"></a>
+        </li>
+    </ul>
+</div>

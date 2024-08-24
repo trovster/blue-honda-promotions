@@ -1,0 +1,9 @@
+<header class="navbar bg-neutral text-neutral-content md:sticky top-0 z-50">
+    <site-nav-mobile></site-nav-mobile>
+
+    <div class="flex-1 items-center max-sm:-ml-8">
+        <a href="/" class="btn text-nowrap btn-wide btn-ghost btn-lg max-sm:mx-auto" @text="$data.site.title"></a>
+    </div>
+
+    <site-nav></site-nav>
+</header>

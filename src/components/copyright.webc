@@ -1,0 +1,3 @@
+<div>
+  © <span @text="year()" webc:nokeep></span>
+</div>

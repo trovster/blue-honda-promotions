@@ -1,25 +1,22 @@
 ---
 title: About
-order: 10
-eleventyComputed:
-  eleventyNavigation:
-    key: "{{ title }}"
-    order: "{{ order }}"
+eleventyNavigation:
+  key: About
+  order: 10
 ---
 <div class="container">
     <h1 class="logo">Blue Honda Promo</h1>
 </div>
 
 <div class="container my-12 mx-auto prose md:prose-xl">
-    <h2 class="mb-2 md:mb-4">{{ title }}</h2>
+    <h2 class="mb-2 md:mb-4" @text="title"></h2>
     <p class="prose-lead">
-        <strong>{{ site.title }}</strong> is a UK-based live music promoter
+        <strong @text="site.title"></strong> is a UK-based live music promoter
         looking for pop-punk, ska-punk, emo and adjacent bands to play North
         East Lincolnshire and Hull in the UK.
     </p>
 </div>
 
 <div class="sm:container mx-auto mt-10 mb-0 sm:mt-16 sm:mb-8">
-    {%- from 'component.njk' import component with context -%}
-    {{ component('event/card', collections.events | next) }}
+    <event-card :@event="next(collections.events)" :@is-next="true"></event-card>
 </div>

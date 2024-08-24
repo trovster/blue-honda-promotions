@@ -5,4 +5,4 @@
 # Ignore specific filetypes
 *.html
 *.md
-*.njk
+*.webc

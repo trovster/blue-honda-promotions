@@ -1,0 +1,26 @@
+<footer class="border-secondary border-t-4">
+    <div class="footer bg-neutral text-neutral-content p-8">
+        <aside class="md:max-w-sm">
+            <h3 class="footer-title">About</h3>
+            <p>
+                <span @text="$data.site.description" webc:nokeep></span>
+                Covering music events in North East
+                Lincolnshire and in Hull.
+            </p>
+            <p><a href="/about/" class="link">Read more</a></p>
+        </aside>
+
+        <div>
+            <footer-menu title="Venues" :items="$data.collections.venues"></footer-menu>
+        </div>
+
+        <div>
+            <footer-menu title="Locations" :items="$data.collections.locationNames"></footer-menu>
+        </div>
+    </div>
+
+    <footer class="footer bg-base-200 text-base-content border-base-300 border-t px-8 flex items-center">
+        <copyright></copyright>
+        <toggle></toggle>
+    </footer>
+</footer>

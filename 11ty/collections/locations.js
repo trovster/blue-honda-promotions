@@ -1,12 +1,7 @@
-export default (collection) => {
-    const items = {}
+export default async (collection, config) => {
+    const items = await config.collections.events()
 
-    collection
-        .getAll()
-        .map((item) => {
-            return item.data.collections.events
-        })
-        .pop()
+    items
         .filter((item) => "location" in item.data)
         .forEach((item) => {
             if (!item.data.location) return

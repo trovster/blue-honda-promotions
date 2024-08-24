@@ -1,1 +1,1 @@
-export default "default.njk"
+export default "default.webc"

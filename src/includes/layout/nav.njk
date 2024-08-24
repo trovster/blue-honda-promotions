@@ -1,9 +1,0 @@
-<div class="hidden sm:flex flex-none justify-end">
-    <ul class="menu menu-horizontal">
-        {% for item in collections.all | eleventyNavigation %}
-            <li>
-                <a href="{{ item.url }}" class="max-md:px-2">{{ item.title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-</div>

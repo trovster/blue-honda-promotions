@@ -15,10 +15,8 @@
     </div>
 
     <ul tabindex="0" class="menu menu-sm dropdown-content bg-neutral text-neutral-content -left-2 z-1 mt-3 p-2 px-4 w-screen">
-        {% for item in collections.all | eleventyNavigation %}
-            <li>
-                <a href="{{ item.url }}">{{ item.title }}</a>
-            </li>
-        {% endfor %}
+        <li webc:for="(key, item) in eleventyNavigation($data.collections.all)">
+            <a :href="item.url" class="max-md:px-2" @text="item.title"></a>
+        </li>
     </ul>
 </div>
