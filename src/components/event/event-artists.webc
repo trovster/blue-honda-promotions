@@ -1,9 +1,8 @@
 <script webc:setup>
   const hasArtists = (event) => event.data.artists.length > 0
-  const isFuture = (event) => new Date(event.data.date) >= Date.now()
 </script>
 
-<h3 class="text-xl font-bold" @text="isFuture(event) ? 'Who is Playing?' : 'Who Played?'"></h3>
+<h3 class="text-xl font-bold" @text="isFuture(event.data.date) ? 'Who is Playing?' : 'Who Played?'"></h3>
 
 <ul class="list-disc list-outside pl-4" webc:if="hasArtists(event)">
     <li webc:for="(key, artist) in event.data.artists" @text="artist"></li>
