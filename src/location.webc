@@ -13,22 +13,22 @@ pagination:
 </script>
 
 <div class="container my-8 mx-auto prose md:prose-xl">
-  <h2 class="mb-2 md:mb-4 text-center" @text="location.data.title"></h2>
-  <template @html="description(location.data.title)" webc:nokeep></template>
+    <h2 class="mb-2 md:mb-4 text-center" @text="location.data.title"></h2>
+    <template @html="description(location.data.title)" webc:nokeep></template>
 </div>
 
 <div webc:if="hasUpcoming(location.data.title)">
-  <div class="divider divider-accent">Upcoming Events…</div>
+    <div class="divider divider-accent">Upcoming Events…</div>
 
-  <div class="container mx-auto my-8">
-      <event-timeline :@events="upcomingEvents(location.data.title)"></event-timeline>
-  </div>
+    <div class="container mx-auto my-8">
+          <event-timeline :@events="upcomingEvents(location.data.title)"></event-timeline>
+    </div>
 </div>
 
 <div webc:if="hasPast(location.data.title)">
-  <div class="divider divider-accent">Previous Events…</div>
+    <div class="divider divider-accent">Previous Events…</div>
 
-  <div class="container mx-auto my-8">
-      <event-timeline :@events="pastEvents(location.data.title)"></event-timeline>
-  </div>
+    <div class="container mx-auto my-8">
+          <event-timeline :@events="pastEvents(location.data.title)"></event-timeline>
+    </div>
 </div>

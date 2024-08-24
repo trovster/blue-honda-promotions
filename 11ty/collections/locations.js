@@ -10,7 +10,7 @@ export default async (collection, config) => {
             if (!item.data.location || locations[item.data.location]) return
 
             if (!items[item.data.location]) {
-                locations[item.data.location] = new Set()
+                locations[item.data.location] = true
             }
 
             items.add({
