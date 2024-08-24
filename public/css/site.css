@@ -15,37 +15,3 @@
     font-family: "DownwardFall";
     src: url("../fonts/DownwardFall.woff2") format("woff2");
 }
-
-.logo {
-    --x: 6px;
-    --y: 6px;
-    --angle: -7deg;
-    --font: "Tanker Regular", system-ui, sans-serif;
-
-    display: table;
-    inline-size: 1rem;
-    white-space: pre-wrap;
-
-    margin: 0 auto;
-    padding: 2rem 0 0;
-
-    color: oklch(var(--s));
-    font-family: var(--font);
-    font-size: clamp(2.4881rem, 1.7066rem + 3.9076vw, 4.735rem);
-    line-height: 0.85;
-    letter-spacing: -0.1rem;
-    font-weight: 900;
-    text-align: left;
-    transform: rotate(var(--angle)) skew(var(--angle)) translate(0px, 0px);
-    transition: text-shadow 50ms ease-in-out;
-
-    [data-theme="cyberpunk"] & {
-        --font: DownwardFall, system-ui, sans-serif;
-    }
-
-    &:hover {
-        text-shadow:
-            calc(var(--x) * 1) calc(var(--y) * 1) 0 oklch(var(--p)),
-            calc(var(--x) * 2) calc(var(--y) * 2) 0 oklch(var(--a));
-    }
-  }

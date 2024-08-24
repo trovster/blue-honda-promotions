@@ -3,7 +3,7 @@ title: Page Not Found
 permalink: 404.html
 ---
 <div class="container">
-    <h1 class="logo">Blue Honda Promo</h1>
+    <logo class="flex justify-center pt-8"></logo>
 </div>
 
 <div class="container my-12 mx-auto prose md:prose-xl text-center max-w-md">

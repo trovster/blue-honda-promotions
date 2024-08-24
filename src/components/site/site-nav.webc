@@ -1,7 +1,7 @@
 <div class="hidden sm:flex flex-none justify-end">
     <ul class="menu menu-horizontal">
         <li webc:for="(key, item) in eleventyNavigation($data.collections.all)">
-            <a :href="item.url" class="max-md:px-2" @text="item.title"></a>
+            <a :href="item.url" class="max-lg:px-2" @text="item.title"></a>
         </li>
     </ul>
 </div>
