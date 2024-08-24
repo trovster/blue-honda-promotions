@@ -11,11 +11,11 @@
         </aside>
 
         <div>
-            <footer-menu title="Venues" :items="$data.collections.venues"></footer-menu>
+            <menu title="Venues" :items="$data.collections.venues"></menu>
         </div>
 
         <div>
-            <footer-menu title="Locations" :items="$data.collections.locationNames"></footer-menu>
+            <menu title="Locations" :items="$data.collections.locationNames"></menu>
         </div>
     </div>
 
